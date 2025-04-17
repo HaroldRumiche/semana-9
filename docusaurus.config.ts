@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Manual de uso del inspeador de Elementos',
+  tagline: 'Aprende a usar el inspeador de elementos de Chrome',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -67,6 +67,58 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'dom',
+        path: 'dom',
+        routeBasePath: 'dom',
+        sidebarPath: './dom.ts',
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'network',
+        path: 'network',
+        routeBasePath: 'network',
+        sidebarPath: './network.ts',
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'performance',
+        path: 'performance',
+        routeBasePath: 'performance',
+        sidebarPath: './performance.ts',
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'storage',
+        path: 'storage',
+        routeBasePath: 'storage',
+        sidebarPath: './storage.ts',
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'style',
+        path: 'style',
+        routeBasePath: 'style',
+        sidebarPath: './style.ts',
+      }
+    ],
+
+
+
+  ],
+
   themes: [
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
@@ -103,6 +155,11 @@ const config: Config = {
           label: 'INICIO',
         },*/
         //{to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/dom', label: 'DOM', position: 'left'},
+        {to: '/network', label: 'Network', position: 'left'},
+        {to: '/performance', label: 'Performance', position: 'left'},
+        {to: '/storage', label: 'Storage', position: 'left'},
+        {to: '/style', label: 'Style', position: 'left'},
         /*{
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
