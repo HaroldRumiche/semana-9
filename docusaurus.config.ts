@@ -37,12 +37,15 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          routeBasePath: '/',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/HaroldRumiche/semana-9/tree/main/',
         },
-        blog: {
+        /*blog: {
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
@@ -56,7 +59,7 @@ const config: Config = {
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
-        },
+        },*/
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -64,34 +67,53 @@ const config: Config = {
     ],
   ],
 
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        // Configuraciones para búsqueda global
+        hashed: true,
+        indexDocs: true,
+        indexPages: true,
+        docsRouteBasePath: '/', // Importante: cambia esto para buscar en todas las rutas de docs
+        useAllContextsWithNoSearchContext: true, // Compartir índices entre contextos
+        
+        // Límites y configuraciones de búsqueda
+        searchResultLimits: 15, // Aumenta el número de resultados
+        searchResultContextMaxLength: 100, // Más contexto en los resultados
+        highlightSearchTermsOnTargetPage: true, // Resaltar términos de búsqueda
+      },
+    ],
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'Semana 9',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
       },
       items: [
-        {
+        /*{
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
+          label: 'INICIO',
+        },*/
+        //{to: '/blog', label: 'Blog', position: 'left'},
+        /*{
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
           position: 'right',
-        },
+        },*/
       ],
     },
     footer: {
       style: 'dark',
       links: [
-        {
+        /*{
           title: 'Docs',
           items: [
             {
@@ -99,11 +121,11 @@ const config: Config = {
               to: '/docs/intro',
             },
           ],
-        },
+        },*/
         {
-          title: 'Community',
+          //title: 'Community',
           items: [
-            {
+            /*{
               label: 'Stack Overflow',
               href: 'https://stackoverflow.com/questions/tagged/docusaurus',
             },
@@ -114,10 +136,10 @@ const config: Config = {
             {
               label: 'X',
               href: 'https://x.com/docusaurus',
-            },
+            },*/
           ],
         },
-        {
+        /*{
           title: 'More',
           items: [
             {
@@ -129,9 +151,9 @@ const config: Config = {
               href: 'https://github.com/facebook/docusaurus',
             },
           ],
-        },
+        },*/
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      //copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
