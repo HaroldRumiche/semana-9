@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksemana_9=self.webpackChunksemana_9||[]).push([[3856],{9659:a=>{a.exports=JSON.parse('{"metadata":{"permalink":"/semana-9/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
