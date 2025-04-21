@@ -114,6 +114,15 @@ const config: Config = {
         sidebarPath: './style.ts',
       }
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'console',
+        path: 'console',
+        routeBasePath: 'console',
+        sidebarPath: './console.ts',
+      }
+    ],
 
 
 
@@ -155,6 +164,7 @@ const config: Config = {
           label: 'INICIO',
         },*/
         //{to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/console', label: 'Console', position: 'left'},
         {to: '/dom', label: 'DOM', position: 'left'},
         {to: '/network', label: 'Network', position: 'left'},
         {to: '/performance', label: 'Performance', position: 'left'},
