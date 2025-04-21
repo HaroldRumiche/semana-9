@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "predeploy": "npm run build && echo 969732197.senati.chat.pe > ./build/CNAME",
+    "predeploy": "npm run build && echo docu.zrenrique.xyz > ./build/CNAME",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
@@ -20,6 +20,8 @@
     "@docusaurus/preset-classic": "3.7.0",
     "@easyops-cn/docusaurus-search-local": "^0.49.2",
     "@mdx-js/react": "^3.0.0",
+    "@node-rs/jieba-win32-x64-msvc": "^1.10.4",
+    "@parcel/watcher-win32-x64": "^2.5.1",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",

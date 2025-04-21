@@ -1,3 +1,7 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Variables globales - Compatible con modo claro y oscuro */
 :root {
   /* Color principal - verde Mintlify */
   --ifm-color-primary: #00e676;
@@ -17,43 +21,74 @@
   /* Espaciados */
   --ifm-spacing-horizontal: 1.5rem;
   
-  /* Barra lateral */
-  --ifm-menu-color: #a1a1aa;
-  --ifm-menu-color-active: #ffffff;
-  --ifm-menu-color-background-active: rgba(0, 230, 118, 0.15);
-  
   /* Bordes redondeados */
   --ifm-global-radius: 8px;
   
-  /* Ajustes generales */
-  --ifm-navbar-background-color: #0d0d10;
-  --ifm-background-color: #0d0d10;
-  --ifm-background-surface-color: #1a1a20;
+  /* Scrollbar personalizado (del primer CSS) */
+  scrollbar-color: var(--ifm-color-emphasis-0) transparent;
+  
+  /* Modo claro (predeterminado) */
+  --ifm-background-color: #f6f8fe;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-color-content: #031863;
+  --ifm-menu-color: #4b587a;
+  --ifm-menu-color-active: #031863;
+  --ifm-menu-color-background-active: rgba(0, 230, 118, 0.1);
+  --ifm-toc-border-color: #e2e5ee;
+  --ifm-card-background-color: #f6f7f9;
+  --ifm-color-emphasis-700: #031863;
+  --ifm-heading-color: #020f3c;
+  
+  /* Colores de contraste para alertas/notificaciones - adaptado del primer CSS */
+  --ifm-color-danger-contrast-background: #ffeeee;
+  --ifm-color-danger-contrast-foreground: #ff0066;
+  --ifm-color-info-contrast-background: #e6f0ff;
+  --ifm-color-info-contrast-foreground: #0077ff;
+  --ifm-color-success-contrast-background: #eaf9f1;
+  --ifm-color-success-contrast-foreground: #00c666;
   
   /* Código */
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.2);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* Importar fuente Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Configuración para modo oscuro */
+html[data-theme='dark'] {
+  --ifm-color-primary: #00e676;
+  --ifm-background-color: #0d0d10;
+  --ifm-navbar-background-color: #0d0d10;
+  --ifm-background-surface-color: #1a1a20;
+  --ifm-code-background: #1a1a20;
+  --ifm-color-content: #f1f1f1;
+  --ifm-menu-color: #a1a1aa;
+  --ifm-menu-color-active: #ffffff;
+  --ifm-menu-color-background-active: rgba(0, 230, 118, 0.15);
+  --ifm-toc-border-color: rgba(255, 255, 255, 0.05);
+  --ifm-card-background-color: #1a1a20;
+  --ifm-color-emphasis-700: #ffffff;
+  --ifm-heading-color: #ffffff;
+  
+  /* Ajustes específicos para modo oscuro */
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+}
 
-/* Configuración de modo oscuro por defecto */
-html {
-  background-color: #0d0d10;
+/* Estilos para hover de scrollbar del primer CSS */
+*:hover {
+  scrollbar-color: var(--ifm-toc-border-color) transparent;
 }
 
 /* Estilos generales */
 body {
   font-family: var(--ifm-font-family-base);
-  color: #f1f1f1;
-  background-color: #0d0d10;
+  color: var(--ifm-color-content);
+  background-color: var(--ifm-background-color);
 }
 
 /* Navbar superior */
 .navbar {
-  background-color: #0d0d10;
+  background-color: var(--ifm-navbar-background-color);
   box-shadow: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
   height: 64px;
 }
 
@@ -74,16 +109,24 @@ body {
 }
 
 .navbar-sidebar {
-  background-color: #0d0d10;
+  background-color: var(--ifm-navbar-background-color);
+}
+
+/* Estilo del logo (del primer CSS) */  
+.navbar__logo {
+  background: #fff;
+  padding: 5px;
+  border-radius: 20px;
 }
 
 /* Botón de búsqueda */
 .navbar__search-input {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--ifm-menu-color-background-active);
   border-radius: 6px;
-  color: #f1f1f1;
+  color: var(--ifm-color-content);
   border: none;
   padding: 6px 12px;
+  height: 2.25rem; /* Del primer CSS */
 }
 
 .navbar__search::before {
@@ -95,6 +138,7 @@ body {
   transform: translateY(-50%);
   pointer-events: none;
   font-size: 14px;
+  color: var(--ifm-color-content);
 }
 
 .navbar__search-input::placeholder {
@@ -112,22 +156,22 @@ body {
 
 .navbar__items--right .button:first-child {
   background-color: transparent;
-  color: #f1f1f1;
-  border: none;
+  color: var(--ifm-color-content);
+  border: 1px solid var(--ifm-toc-border-color);
 }
 
 .navbar__items--right .button:last-child {
-  background-color: #00e676;
+  background-color: var(--ifm-color-primary);
   color: #0d0d10;
   font-weight: 500;
 }
 
 /* Barra lateral */
 .menu {
-  background-color: #0d0d10;
+  background-color: var(--ifm-background-color);
   padding: 1.5rem 0.8rem;
   font-weight: 400;
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid var(--ifm-toc-border-color);
 }
 
 .menu__list {
@@ -138,18 +182,18 @@ body {
   border-radius: 6px;
   padding: 8px 12px;
   font-size: 14px;
-  color: #a1a1aa;
+  color: var(--ifm-menu-color);
   transition: all 0.2s ease;
 }
 
 .menu__link:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #f1f1f1;
+  background-color: var(--ifm-menu-color-background-active);
+  color: var(--ifm-menu-color-active);
 }
 
 .menu__link--active {
-  background-color: rgba(0, 230, 118, 0.15);
-  color: #ffffff;
+  background-color: var(--ifm-menu-color-background-active);
+  color: var(--ifm-menu-color-active);
   font-weight: 500;
 }
 
@@ -157,14 +201,26 @@ body {
   background: transparent;
 }
 
+/* Elementos de menú anidados (del primer CSS) */
+.menu__list .menu__list {
+  border-left: 1px solid var(--ifm-toc-border-color);
+  padding-left: 0;
+  margin-left: 24px;
+}
+
 /* Títulos de secciones en la barra lateral */
 .menu__list-item-collapsible .menu__link:not(.menu__link--active) {
-  color: #f1f1f1;
+  color: var(--ifm-color-emphasis-700);
   font-weight: 600;
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.05em;
   margin-top: 10px;
+}
+
+/* Ícono de flecha (del primer CSS) */
+.menu__caret {
+  transform: scale(.6);
 }
 
 /* Íconos en la barra lateral */
@@ -181,6 +237,7 @@ body {
   vertical-align: text-bottom;
 }
 
+/* Define íconos específicos para elementos del menú */
 .menu__list-item:nth-child(1) .menu__link::before {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23a1a1aa"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>');
 }
@@ -193,9 +250,23 @@ body {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23a1a1aa"><path d="M20 4v12H8V4h12m0-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 9.67l1.69 2.26 2.48-3.1L19 15H9zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"/></svg>');
 }
 
+/* Estilo de íconos al seleccionar (similar al primer CSS) */
+span.sidebar-icon svg {
+  background: var(--ifm-menu-color-background-active);
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+}
+
+.menu__list-item-collapsible:hover span.sidebar-icon svg,
+.menu__list-item-collapsible:hover .menu__caret {
+  background: var(--ifm-card-background-color);
+}
+
 /* Contenido principal */
 .main-wrapper {
-  background-color: #0d0d10;
+  background-color: var(--ifm-background-color);
 }
 
 .container {
@@ -203,10 +274,26 @@ body {
   padding: 2rem var(--ifm-spacing-horizontal);
 }
 
+/* Markdown styling (del primer CSS) */
+.theme-doc-markdown.markdown {
+  padding: 30px;
+  border-radius: 20px;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.markdown p img {
+  margin: 3rem auto;
+  display: block;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid var(--ifm-toc-border-color);
+  padding: 5px;
+}
+
 /* Títulos */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  color: #ffffff;
+  color: var(--ifm-heading-color);
   letter-spacing: -0.02em;
 }
 
@@ -221,16 +308,21 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2.25rem;
+}
+
 /* Tarjetas - como las que aparecen en la imagen */
 .card {
-  background-color: #1a1a20;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-toc-border-color);
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: none;
 }
 
 .card:hover {
@@ -245,7 +337,7 @@ h2 {
   top: 1rem;
   right: 1rem;
   font-size: 1.2rem;
-  color: #a1a1aa;
+  color: var(--ifm-menu-color);
   transition: all 0.2s ease;
 }
 
@@ -254,26 +346,49 @@ h2 {
   color: var(--ifm-color-primary);
 }
 
+/* Documentación - tarjetas (del primer CSS) */
+.docs-card {
+  background-color: var(--ifm-menu-color-background-active) !important;
+  padding: 10px 20px;
+  border: 1px solid var(--ifm-toc-border-color);
+}
+
+.docs-card:hover {
+  background: var(--ifm-toc-border-color) !important;
+}
+
+header.Card-header {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--ifm-color-primary);
+}
+
+header.Card-header:before {
+  content: '🔗';
+  display: block;
+  font-size: 2rem;
+}
+
 /* Tabla de contenidos - "On this page" */
 .table-of-contents {
-  background-color: #1a1a20;
+  background-color: var(--ifm-card-background-color);
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--ifm-toc-border-color);
 }
 
 .table-of-contents:before {
   content: "On this page";
   display: block;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--ifm-heading-color);
   margin-bottom: 0.75rem;
   font-size: 0.9rem;
 }
 
 .table-of-contents__link {
-  color: #a1a1aa;
+  color: var(--ifm-menu-color);
   font-size: 0.85rem;
   padding: 0.25rem 0;
   display: block;
@@ -283,6 +398,11 @@ h2 {
 .table-of-contents__link--active {
   color: var(--ifm-color-primary);
   text-decoration: none;
+}
+
+/* Elimina borde izquierdo (del primer CSS) */
+.table-of-contents__left-border {
+  border-left: none;
 }
 
 /* Enlaces */
@@ -298,7 +418,7 @@ a:hover {
 
 /* Contenido de la página */
 .markdown {
-  color: #e4e4e7;
+  color: var(--ifm-color-content);
 }
 
 .markdown p {
@@ -306,7 +426,7 @@ a:hover {
   line-height: 1.7;
 }
 
-/* Estilos específicos para las tarjetas como en la imagen */
+/* Estilos específicos para las tarjetas grid como en la imagen */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -315,10 +435,10 @@ a:hover {
 }
 
 .feature-card {
-  background-color: #1a1a20;
+  background-color: var(--ifm-card-background-color);
   border-radius: 8px;
   padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--ifm-toc-border-color);
   transition: all 0.3s ease;
   position: relative;
 }
@@ -342,7 +462,7 @@ a:hover {
 }
 
 .feature-card__description {
-  color: #a1a1aa;
+  color: var(--ifm-menu-color);
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -351,6 +471,11 @@ a:hover {
 @media (max-width: 996px) {
   .card-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Navbar responsiva (del primer CSS) */
+  .searchBox_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
+    right: unset !important;
   }
 }
 
@@ -372,24 +497,71 @@ a:hover {
 }
 
 .button--secondary {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background-color: var(--ifm-menu-color-background-active);
+  color: var(--ifm-color-content);
 }
 
 .button--secondary:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: var(--ifm-toc-border-color);
 }
 
 /* Ajustes para bloques de código */
 .prism-code {
-  background-color: #1a1a20 !important;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--ifm-background-surface-color) !important;
+  border: 1px solid var(--ifm-toc-border-color);
   border-radius: 8px;
 }
 
 code {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--ifm-menu-color-background-active);
   border-radius: 4px;
   padding: 0.2rem 0.4rem;
   font-size: 85%;
+}
+
+/* Estilo del conmutador de tema claro/oscuro */
+.clean-btn.toggleButton_gllP {
+  border: 1px solid var(--ifm-toc-border-color);
+}
+
+/* Barra lateral - eliminando bordes redundantes */
+.theme-doc-sidebar-container {
+  border-right: none !important;
+}
+
+/* Estilos para alertas */
+.alert {
+  border-left-width: 0;
+  box-shadow: unset;
+}
+
+/* API Methods (del primer CSS) */
+.api-method > .menu__link::before,
+.schema > .menu__link::before {
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+.get > .menu__link::before {
+  content: "GET";
+  background-color: var(--ifm-color-info-contrast-background);
+  color: var(--ifm-color-info-contrast-foreground);
+  border-color: var(--ifm-color-info-dark);
+}
+
+.post > .menu__link::before {
+  content: "POST";
+  background-color: var(--ifm-color-success-contrast-background);
+  color: var(--ifm-color-success-contrast-foreground);
+  border-color: var(--ifm-color-success-dark);
+}
+
+.delete > .menu__link::before {
+  content: "DEL";
+  background-color: var(--ifm-color-danger-contrast-background);
+  color: var(--ifm-color-danger-contrast-foreground);
+  border-color: var(--ifm-color-danger-dark);
 }
