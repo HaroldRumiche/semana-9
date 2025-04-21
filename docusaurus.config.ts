@@ -10,15 +10,15 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://docu.zrenrique.xyz',
+  url: 'https://Jean-Zapata.github.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'HaroldRumiche', // Usually your GitHub org/user name.
-  projectName: 'semana-9', // Usually your repo name.
+  organizationName: 'Jean-Zapata', // Usually your GitHub org/user name.
+  projectName: 'manual', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
