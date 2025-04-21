@@ -123,6 +123,15 @@ const config: Config = {
         sidebarPath: './console.ts',
       }
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'sources',
+        path: 'sources',
+        routeBasePath: 'sources',
+        sidebarPath: './sources.ts',
+      }
+    ],
 
 
 
@@ -168,6 +177,7 @@ const config: Config = {
         {to: '/dom', label: 'DOM', position: 'left'},
         {to: '/network', label: 'Network', position: 'left'},
         {to: '/performance', label: 'Performance', position: 'left'},
+        {to: '/sources', label: 'Sources', position: 'left'},
         {to: '/storage', label: 'Storage', position: 'left'},
         {to: '/style', label: 'Style', position: 'left'},
         /*{

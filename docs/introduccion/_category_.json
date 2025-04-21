@@ -1,0 +1,9 @@
+{
+  "label": "Introducción",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "introduccion",
+    "description": "Manual intruductorio para el uso del Inspector de Elementos de la Consola de Desarrollo de Google Chrome."
+  }
+}

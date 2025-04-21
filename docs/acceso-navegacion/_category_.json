@@ -1,0 +1,9 @@
+{
+  "label": "Acceso y Navegación",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "slug": "acceso-navegacion",
+    "description": "Guía para acceder y navegar por el Inspector de Elementos de la Consola de Desarrollo de Google Chrome."
+  }
+}
