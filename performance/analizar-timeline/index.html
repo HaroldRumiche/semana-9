@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-performance docs-version-current docs-doc-page docs-doc-id-analizar-timeline" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Análisis de la Timeline de Performance | Manual de uso del inspeador de Elementos</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docu.zrenrique.xyz/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docu.zrenrique.xyz/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docu.zrenrique.xyz/performance/analizar-timeline"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-performance-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-performance-current"><meta data-rh="true" property="og:title" content="Análisis de la Timeline de Performance | Manual de uso del inspeador de Elementos"><meta data-rh="true" name="description" content="La timeline (línea de tiempo) es el componente central del panel Performance, mostrando una representación visual de todas las actividades del navegador. Aprender a interpretarla es esencial para identificar y resolver problemas de rendimiento."><meta data-rh="true" property="og:description" content="La timeline (línea de tiempo) es el componente central del panel Performance, mostrando una representación visual de todas las actividades del navegador. Aprender a interpretarla es esencial para identificar y resolver problemas de rendimiento."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docu.zrenrique.xyz/performance/analizar-timeline"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/performance/analizar-timeline" hreflang="es"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/performance/analizar-timeline" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Manual de uso del inspeador de Elementos RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Manual de uso del inspeador de Elementos Atom Feed"><link rel="stylesheet" href="/assets/css/styles.a3188627.css">
+<script src="/assets/js/runtime~main.8ba94fb1.js" defer="defer"></script>
+<script src="/assets/js/main.19133bcd.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Semana 9</b></a><a class="navbar__item navbar__link" href="/dom">DOM</a><a class="navbar__item navbar__link" href="/network">Network</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/performance">Performance</a><a class="navbar__item navbar__link" href="/storage">Storage</a><a class="navbar__item navbar__link" href="/style">Style</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-label="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Barra lateral de Documentos" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/performance/">Introducción</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/performance/grabar-sesion">Grabar Sesión</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/performance/analizar-timeline">Analizar Timeline</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/performance/fps-frames">Monitor de FPS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/performance/eventos-importantes">Métricas Clave</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/performance/analizar-lentitud">Analizar Lentitud</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/performance/optimizar-renderizado">Optimizar Renderizado</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/performance/ejemplos-practicos">Ejemplos Prácticos</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Rastro de navegación"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Analizar Timeline</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><header><h1>Análisis de la Timeline de Performance</h1></header>
+<p>La timeline (línea de tiempo) es el componente central del panel Performance, mostrando una representación visual de todas las actividades del navegador. Aprender a interpretarla es esencial para identificar y resolver problemas de rendimiento.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="estructura-de-la-timeline">Estructura de la Timeline<a href="#estructura-de-la-timeline" class="hash-link" aria-label="Enlace directo al Estructura de la Timeline" title="Enlace directo al Estructura de la Timeline">​</a></h2>
+<p>La timeline se divide en varias secciones horizontales que representan diferentes aspectos del rendimiento:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-vista-general-overview">1. Vista general (Overview)<a href="#1-vista-general-overview" class="hash-link" aria-label="Enlace directo al 1. Vista general (Overview)" title="Enlace directo al 1. Vista general (Overview)">​</a></h3>
+<ul>
+<li>Ubicada en la parte superior</li>
+<li>Muestra un resumen compacto de toda la actividad</li>
+<li>Permite seleccionar períodos específicos para un análisis más detallado</li>
+<li>Incluye gráficos de FPS, CPU y red</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-marcadores-frames">2. Marcadores (Frames)<a href="#2-marcadores-frames" class="hash-link" aria-label="Enlace directo al 2. Marcadores (Frames)" title="Enlace directo al 2. Marcadores (Frames)">​</a></h3>
+<ul>
+<li>Muestra los fotogramas renderizados</li>
+<li>Los marcadores verdes indican un rendimiento fluido</li>
+<li>Los marcadores amarillos o rojos indican problemas de rendimiento (caídas de FPS)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-secciones-principales">3. Secciones principales<a href="#3-secciones-principales" class="hash-link" aria-label="Enlace directo al 3. Secciones principales" title="Enlace directo al 3. Secciones principales">​</a></h3>
+<docs-cards><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/performance/analizar-timeline#network"><div class="Card-container"><header class="Card-header">Network</header><div class="Card-content"><p>Muestra todas las solicitudes de red y sus tiempos.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/performance/analizar-timeline#main"><div class="Card-container"><header class="Card-header">Main</header><div class="Card-content"><p>Registra todas las actividades en el hilo principal, incluyendo JavaScript, estilo y layout.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/performance/analizar-timeline#compositor"><div class="Card-container"><header class="Card-header">Compositor</header><div class="Card-content"><p>Muestra las actividades del hilo de composición que combina capas para crear frames.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/performance/analizar-timeline#gpu"><div class="Card-container"><header class="Card-header">GPU</header><div class="Card-content"><p>Indica la actividad de la GPU durante el renderizado.</p></div></div></a></docs-card></docs-cards>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="interpretación-de-la-timeline">Interpretación de la Timeline<a href="#interpretación-de-la-timeline" class="hash-link" aria-label="Enlace directo al Interpretación de la Timeline" title="Enlace directo al Interpretación de la Timeline">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="código-de-colores">Código de colores<a href="#código-de-colores" class="hash-link" aria-label="Enlace directo al Código de colores" title="Enlace directo al Código de colores">​</a></h3>
+<p>Las actividades en la timeline se distinguen por colores:</p>
+<ul>
+<li><strong>Amarillo</strong>: JavaScript</li>
+<li><strong>Púrpura</strong>: Estilo (Recalculate Style)</li>
+<li><strong>Azul</strong>: Layout</li>
+<li><strong>Verde</strong>: Paint</li>
+<li><strong>Verde oscuro</strong>: Composite</li>
+<li><strong>Gris</strong>: Idle (inactividad)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="identificando-problemas-comunes">Identificando problemas comunes<a href="#identificando-problemas-comunes" class="hash-link" aria-label="Enlace directo al Identificando problemas comunes" title="Enlace directo al Identificando problemas comunes">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-long-tasks">1. Long Tasks<a href="#1-long-tasks" class="hash-link" aria-label="Enlace directo al 1. Long Tasks" title="Enlace directo al 1. Long Tasks">​</a></h4>
+<ul>
+<li>Barras largas amarillas (&gt;50ms) indican tareas de JavaScript que bloquean el hilo principal</li>
+<li>Busca estos bloques para identificar código JavaScript ineficiente</li>
+<li>Examina los detalles para ver la pila de llamadas (call stack)</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-cascadas-de-layout-forzado">2. Cascadas de layout forzado<a href="#2-cascadas-de-layout-forzado" class="hash-link" aria-label="Enlace directo al 2. Cascadas de layout forzado" title="Enlace directo al 2. Cascadas de layout forzado">​</a></h4>
+<ul>
+<li>Secuencias de purple-blue repetitivas (recalculate style → layout)</li>
+<li>Indican reflow forzado, donde el JavaScript lee propiedades que requieren cálculos de layout</li>
+<li>Optimiza el código para agrupar lecturas y escrituras DOM</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="3-paint-storms">3. Paint storms<a href="#3-paint-storms" class="hash-link" aria-label="Enlace directo al 3. Paint storms" title="Enlace directo al 3. Paint storms">​</a></h4>
+<ul>
+<li>Múltiples eventos de paint (verde) consecutivos</li>
+<li>Sugieren cambios frecuentes en elementos visuales</li>
+<li>Considera técnicas como GPU acceleration o will-change para reducir repintados</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="navegación-y-zoom">Navegación y zoom<a href="#navegación-y-zoom" class="hash-link" aria-label="Enlace directo al Navegación y zoom" title="Enlace directo al Navegación y zoom">​</a></h2>
+<p>Para analizar secciones específicas:</p>
+<ol>
+<li>Usa el área de overview para seleccionar un rango de tiempo</li>
+<li>Amplía con la rueda del ratón o gestos de pinza</li>
+<li>Navega arrastrando la vista mientras mantienes pulsado</li>
+<li>Utiliza las teclas W, A, S, D para navegar (W/S para zoom, A/D para desplazamiento)</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="panel-de-detalles">Panel de detalles<a href="#panel-de-detalles" class="hash-link" aria-label="Enlace directo al Panel de detalles" title="Enlace directo al Panel de detalles">​</a></h2>
+<p>Al seleccionar cualquier evento en la timeline:</p>
+<ol>
+<li>Se muestra un panel de detalles en la parte inferior</li>
+<li>El panel incluye:<!-- -->
+<ul>
+<li>Duración del evento</li>
+<li>Pila de llamadas (call stack)</li>
+<li>Ubicación en el código fuente</li>
+<li>Eventos relacionados</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="filtrado-y-búsqueda">Filtrado y búsqueda<a href="#filtrado-y-búsqueda" class="hash-link" aria-label="Enlace directo al Filtrado y búsqueda" title="Enlace directo al Filtrado y búsqueda">​</a></h2>
+<p>Para centrarse en tipos específicos de eventos:</p>
+<ol>
+<li>Usa el campo de búsqueda en la parte superior</li>
+<li>Filtra por:<!-- -->
+<ul>
+<li>Nombre de función</li>
+<li>Categoría de evento</li>
+<li>Duración (e.g., &quot;&gt;50ms&quot;)</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="análisis-de-métricas-clave">Análisis de métricas clave<a href="#análisis-de-métricas-clave" class="hash-link" aria-label="Enlace directo al Análisis de métricas clave" title="Enlace directo al Análisis de métricas clave">​</a></h2>
+<p>En la parte superior del panel Performance, encontrarás resúmenes de métricas importantes:</p>
+<ul>
+<li><strong>FPS</strong>: Frames por segundo (60 FPS es el objetivo ideal)</li>
+<li><strong>CPU</strong>: Distribución del uso de CPU por categorías</li>
+<li><strong>NET</strong>: Actividad de red durante la grabación</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="consejos-para-un-análisis-efectivo">Consejos para un análisis efectivo<a href="#consejos-para-un-análisis-efectivo" class="hash-link" aria-label="Enlace directo al Consejos para un análisis efectivo" title="Enlace directo al Consejos para un análisis efectivo">​</a></h2>
+<ul>
+<li>Enfócate en las barras más largas primero (principio de Pareto)</li>
+<li>Busca patrones repetitivos que indiquen problemas sistemáticos</li>
+<li>Compara grabaciones antes y después de optimizaciones</li>
+<li>Analiza específicamente las animaciones o interacciones con bajo FPS</li>
+<li>Examina la sincronización entre eventos de red y actividad del DOM</li>
+</ul>
+<p>En la siguiente sección, profundizaremos en el análisis de Frames por Segundo (FPS) y cómo optimizar la fluidez visual de tu aplicación.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/performance/grabar-sesion"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">Grabar Sesión</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/performance/fps-frames"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">Monitor de FPS</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#estructura-de-la-timeline" class="table-of-contents__link toc-highlight">Estructura de la Timeline</a><ul><li><a href="#1-vista-general-overview" class="table-of-contents__link toc-highlight">1. Vista general (Overview)</a></li><li><a href="#2-marcadores-frames" class="table-of-contents__link toc-highlight">2. Marcadores (Frames)</a></li><li><a href="#3-secciones-principales" class="table-of-contents__link toc-highlight">3. Secciones principales</a></li></ul></li><li><a href="#interpretación-de-la-timeline" class="table-of-contents__link toc-highlight">Interpretación de la Timeline</a><ul><li><a href="#código-de-colores" class="table-of-contents__link toc-highlight">Código de colores</a></li><li><a href="#identificando-problemas-comunes" class="table-of-contents__link toc-highlight">Identificando problemas comunes</a></li></ul></li><li><a href="#navegación-y-zoom" class="table-of-contents__link toc-highlight">Navegación y zoom</a></li><li><a href="#panel-de-detalles" class="table-of-contents__link toc-highlight">Panel de detalles</a></li><li><a href="#filtrado-y-búsqueda" class="table-of-contents__link toc-highlight">Filtrado y búsqueda</a></li><li><a href="#análisis-de-métricas-clave" class="table-of-contents__link toc-highlight">Análisis de métricas clave</a></li><li><a href="#consejos-para-un-análisis-efectivo" class="table-of-contents__link toc-highlight">Consejos para un análisis efectivo</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title"></div><ul class="footer__items clean-list"></ul></div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-style docs-version-current docs-doc-page docs-doc-id-propiedades-calculadas" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Propiedades Calculadas | Manual de uso del inspeador de Elementos</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docu.zrenrique.xyz/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docu.zrenrique.xyz/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docu.zrenrique.xyz/style/propiedades-calculadas"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-style-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-style-current"><meta data-rh="true" property="og:title" content="Propiedades Calculadas | Manual de uso del inspeador de Elementos"><meta data-rh="true" name="description" content="El panel de propiedades calculadas muestra los valores finales de todas las propiedades CSS aplicadas a un elemento después de resolver la cascada, herencia y cálculos. Esta vista es crucial para entender exactamente cómo el navegador está interpretando los estilos aplicados."><meta data-rh="true" property="og:description" content="El panel de propiedades calculadas muestra los valores finales de todas las propiedades CSS aplicadas a un elemento después de resolver la cascada, herencia y cálculos. Esta vista es crucial para entender exactamente cómo el navegador está interpretando los estilos aplicados."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docu.zrenrique.xyz/style/propiedades-calculadas"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/style/propiedades-calculadas" hreflang="es"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/style/propiedades-calculadas" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Manual de uso del inspeador de Elementos RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Manual de uso del inspeador de Elementos Atom Feed"><link rel="stylesheet" href="/assets/css/styles.a3188627.css">
+<script src="/assets/js/runtime~main.8ba94fb1.js" defer="defer"></script>
+<script src="/assets/js/main.19133bcd.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Semana 9</b></a><a class="navbar__item navbar__link" href="/dom">DOM</a><a class="navbar__item navbar__link" href="/network">Network</a><a class="navbar__item navbar__link" href="/performance">Performance</a><a class="navbar__item navbar__link" href="/storage">Storage</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/style">Style</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-label="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Barra lateral de Documentos" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/style/">Introducción</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/style/inspeccionar-estilos">Inspeccionar Estilos</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/style/reglas-css">Reglas CSS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/style/propiedades-calculadas">Propiedades Calculadas</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/style/cajas-modelo">Modelo de Cajas</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/style/modificar-estilos">Modificar Estilos</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/style/ver-medias-queries">Media Queries</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/style/depurar-estilos">Depurar Estilos</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Rastro de navegación"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Propiedades Calculadas</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><header><h1>Propiedades Calculadas</h1></header>
+<p>El panel de propiedades calculadas muestra los valores finales de todas las propiedades CSS aplicadas a un elemento después de resolver la cascada, herencia y cálculos. Esta vista es crucial para entender exactamente cómo el navegador está interpretando los estilos aplicados.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="acceso-a-las-propiedades-calculadas">Acceso a las propiedades calculadas<a href="#acceso-a-las-propiedades-calculadas" class="hash-link" aria-label="Enlace directo al Acceso a las propiedades calculadas" title="Enlace directo al Acceso a las propiedades calculadas">​</a></h2>
+<p>Para ver las propiedades calculadas de un elemento:</p>
+<ol>
+<li>Selecciona un elemento usando cualquiera de los métodos de inspección</li>
+<li>En el panel de estilos, busca la pestaña &quot;Computed&quot; o &quot;Calculado&quot;</li>
+<li>Se mostrará una lista de todas las propiedades con sus valores finales</li>
+</ol>
+<p><img decoding="async" loading="lazy" src="https://ejemplo.com/images/computed-properties.png" alt="Panel de propiedades calculadas" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="características-del-panel-de-propiedades-calculadas">Características del panel de propiedades calculadas<a href="#características-del-panel-de-propiedades-calculadas" class="hash-link" aria-label="Enlace directo al Características del panel de propiedades calculadas" title="Enlace directo al Características del panel de propiedades calculadas">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="valores-resueltos">Valores resueltos<a href="#valores-resueltos" class="hash-link" aria-label="Enlace directo al Valores resueltos" title="Enlace directo al Valores resueltos">​</a></h3>
+<p>Las propiedades calculadas muestran:</p>
+<ul>
+<li>Valores absolutos (en px) para dimensiones relativas (%, em, rem, vh, vw)</li>
+<li>Colores en formato RGB/RGBA (incluso si se definieron como nombres o hex)</li>
+<li>Valores computados para propiedades que pueden ser heredadas</li>
+<li>Fuentes y familias de fuentes exactas que se están utilizando</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="organización-de-propiedades">Organización de propiedades<a href="#organización-de-propiedades" class="hash-link" aria-label="Enlace directo al Organización de propiedades" title="Enlace directo al Organización de propiedades">​</a></h3>
+<p>Las propiedades se organizan alfabéticamente por defecto, pero algunos navegadores permiten agruparlas por categorías:</p>
+<ul>
+<li><strong>Layout</strong>: Propiedades relacionadas con posicionamiento y dimensiones</li>
+<li><strong>Text</strong>: Propiedades de texto y tipografía</li>
+<li><strong>Decoration</strong>: Propiedades visuales como colores y bordes</li>
+<li><strong>Animation</strong>: Propiedades relacionadas con animaciones y transiciones</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="filtrado-de-propiedades">Filtrado de propiedades<a href="#filtrado-de-propiedades" class="hash-link" aria-label="Enlace directo al Filtrado de propiedades" title="Enlace directo al Filtrado de propiedades">​</a></h2>
+<p>Para encontrar rápidamente propiedades específicas:</p>
+<ol>
+<li>Usa el campo de búsqueda en la parte superior del panel</li>
+<li>Escribe el nombre de la propiedad o valor que buscas</li>
+<li>Solo se mostrarán las propiedades que coincidan con tu búsqueda</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="opciones-de-visualización">Opciones de visualización<a href="#opciones-de-visualización" class="hash-link" aria-label="Enlace directo al Opciones de visualización" title="Enlace directo al Opciones de visualización">​</a></h3>
+<ul>
+<li><strong>Mostrar todo</strong>: Muestra todas las propiedades aplicadas</li>
+<li><strong>Mostrar sólo aplicadas</strong>: Filtra para mostrar sólo las propiedades que tienen un valor diferente al predeterminado</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="trazabilidad-de-propiedades">Trazabilidad de propiedades<a href="#trazabilidad-de-propiedades" class="hash-link" aria-label="Enlace directo al Trazabilidad de propiedades" title="Enlace directo al Trazabilidad de propiedades">​</a></h2>
+<p>Una característica poderosa es la capacidad de ver de dónde proviene cada valor calculado:</p>
+<ol>
+<li>Haz clic en la flecha junto a cualquier propiedad</li>
+<li>Se mostrará una lista de todas las reglas que contribuyen a ese valor</li>
+<li>Las reglas tachadas son las que han sido anuladas</li>
+<li>Puedes hacer clic en el origen para ir directamente a la definición</li>
+</ol>
+<p><img decoding="async" loading="lazy" src="https://ejemplo.com/images/property-tracing.png" alt="Trazabilidad de propiedades" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="unidades-de-medida-y-conversiones">Unidades de medida y conversiones<a href="#unidades-de-medida-y-conversiones" class="hash-link" aria-label="Enlace directo al Unidades de medida y conversiones" title="Enlace directo al Unidades de medida y conversiones">​</a></h2>
+<p>Las propiedades calculadas realizan conversiones automáticas:</p>
+<ul>
+<li>
+<p><strong>Unidades relativas a absolutas</strong>:</p>
+<ul>
+<li><code>em</code> → <code>px</code> (basado en el tamaño de fuente del elemento)</li>
+<li><code>rem</code> → <code>px</code> (basado en el tamaño de fuente del elemento raíz)</li>
+<li><code>%</code> → <code>px</code> (basado en el tamaño del contenedor)</li>
+<li><code>vh/vw</code> → <code>px</code> (basado en el tamaño de la ventana)</li>
+</ul>
+</li>
+<li>
+<p><strong>Valores calculados</strong>:</p>
+<ul>
+<li>Funciones <code>calc()</code>, <code>min()</code>, <code>max()</code> son evaluadas</li>
+<li>Variables CSS (<code>--mi-variable</code>) son reemplazadas por sus valores</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="visualización-de-propiedades-específicas">Visualización de propiedades específicas<a href="#visualización-de-propiedades-específicas" class="hash-link" aria-label="Enlace directo al Visualización de propiedades específicas" title="Enlace directo al Visualización de propiedades específicas">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fuentes-y-tipografía">Fuentes y tipografía<a href="#fuentes-y-tipografía" class="hash-link" aria-label="Enlace directo al Fuentes y tipografía" title="Enlace directo al Fuentes y tipografía">​</a></h3>
+<p>La sección de fuentes muestra información detallada:</p>
+<ul>
+<li>Familia de fuente exacta que se está usando</li>
+<li>Tamaño de fuente en píxeles</li>
+<li>Peso de la fuente (normal, bold, o valor numérico)</li>
+<li>Estilo de fuente (normal, italic, oblique)</li>
+<li>Altura de línea en píxeles</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="colores-y-opacidad">Colores y opacidad<a href="#colores-y-opacidad" class="hash-link" aria-label="Enlace directo al Colores y opacidad" title="Enlace directo al Colores y opacidad">​</a></h3>
+<p>Los colores se muestran en formato estándar:</p>
+<ul>
+<li>Todos los colores se convierten a RGB/RGBA</li>
+<li>Se muestra una muestra visual del color</li>
+<li>La opacidad general del elemento se indica</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="posicionamiento-y-dimensiones">Posicionamiento y dimensiones<a href="#posicionamiento-y-dimensiones" class="hash-link" aria-label="Enlace directo al Posicionamiento y dimensiones" title="Enlace directo al Posicionamiento y dimensiones">​</a></h3>
+<p>Muestra las coordenadas exactas y dimensiones:</p>
+<ul>
+<li>Valores <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> para elementos posicionados</li>
+<li>Ancho y alto exactos en píxeles</li>
+<li>Z-index y contexto de apilamiento</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="casos-de-uso-comunes">Casos de uso comunes<a href="#casos-de-uso-comunes" class="hash-link" aria-label="Enlace directo al Casos de uso comunes" title="Enlace directo al Casos de uso comunes">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="depuración-de-diseño-responsivo">Depuración de diseño responsivo<a href="#depuración-de-diseño-responsivo" class="hash-link" aria-label="Enlace directo al Depuración de diseño responsivo" title="Enlace directo al Depuración de diseño responsivo">​</a></h3>
+<ol>
+<li>Redimensiona la ventana o usa el modo responsive</li>
+<li>Inspecciona un elemento para ver cómo cambian sus propiedades calculadas</li>
+<li>Verifica que las media queries estén funcionando correctamente</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="verificación-de-herencia-y-cascada">Verificación de herencia y cascada<a href="#verificación-de-herencia-y-cascada" class="hash-link" aria-label="Enlace directo al Verificación de herencia y cascada" title="Enlace directo al Verificación de herencia y cascada">​</a></h3>
+<ol>
+<li>Inspecciona un elemento anidado profundamente</li>
+<li>Revisa las propiedades heredadas para verificar que provienen del elemento correcto</li>
+<li>Comprueba que las propiedades con mayor especificidad estén ganando en la cascada</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="detección-de-problemas-de-rendimiento">Detección de problemas de rendimiento<a href="#detección-de-problemas-de-rendimiento" class="hash-link" aria-label="Enlace directo al Detección de problemas de rendimiento" title="Enlace directo al Detección de problemas de rendimiento">​</a></h3>
+<ol>
+<li>Busca propiedades que desencadenan recalculos costosos (como <code>width: auto</code> en situaciones complejas)</li>
+<li>Verifica que no haya demasiadas propiedades calculadas dinámicamente</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="consejos-para-trabajar-con-propiedades-calculadas">Consejos para trabajar con propiedades calculadas<a href="#consejos-para-trabajar-con-propiedades-calculadas" class="hash-link" aria-label="Enlace directo al Consejos para trabajar con propiedades calculadas" title="Enlace directo al Consejos para trabajar con propiedades calculadas">​</a></h2>
+<ul>
+<li>Usa el filtro para mostrar solo propiedades no predeterminadas y centrarte en los valores importantes</li>
+<li>Compara las propiedades calculadas entre diferentes elementos para detectar inconsistencias</li>
+<li>Verifica las unidades para asegurarte de que las conversiones sean las esperadas</li>
+<li>Utiliza la vista de propiedades calculadas para entender cómo se computa exactamente el layout</li>
+</ul>
+<p>En la siguiente sección, examinaremos en detalle el modelo de caja y cómo visualizar y modificar las dimensiones de los elementos.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/style/reglas-css"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">Reglas CSS</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/style/cajas-modelo"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">Modelo de Cajas</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#acceso-a-las-propiedades-calculadas" class="table-of-contents__link toc-highlight">Acceso a las propiedades calculadas</a></li><li><a href="#características-del-panel-de-propiedades-calculadas" class="table-of-contents__link toc-highlight">Características del panel de propiedades calculadas</a><ul><li><a href="#valores-resueltos" class="table-of-contents__link toc-highlight">Valores resueltos</a></li><li><a href="#organización-de-propiedades" class="table-of-contents__link toc-highlight">Organización de propiedades</a></li></ul></li><li><a href="#filtrado-de-propiedades" class="table-of-contents__link toc-highlight">Filtrado de propiedades</a><ul><li><a href="#opciones-de-visualización" class="table-of-contents__link toc-highlight">Opciones de visualización</a></li></ul></li><li><a href="#trazabilidad-de-propiedades" class="table-of-contents__link toc-highlight">Trazabilidad de propiedades</a></li><li><a href="#unidades-de-medida-y-conversiones" class="table-of-contents__link toc-highlight">Unidades de medida y conversiones</a></li><li><a href="#visualización-de-propiedades-específicas" class="table-of-contents__link toc-highlight">Visualización de propiedades específicas</a><ul><li><a href="#fuentes-y-tipografía" class="table-of-contents__link toc-highlight">Fuentes y tipografía</a></li><li><a href="#colores-y-opacidad" class="table-of-contents__link toc-highlight">Colores y opacidad</a></li><li><a href="#posicionamiento-y-dimensiones" class="table-of-contents__link toc-highlight">Posicionamiento y dimensiones</a></li></ul></li><li><a href="#casos-de-uso-comunes" class="table-of-contents__link toc-highlight">Casos de uso comunes</a><ul><li><a href="#depuración-de-diseño-responsivo" class="table-of-contents__link toc-highlight">Depuración de diseño responsivo</a></li><li><a href="#verificación-de-herencia-y-cascada" class="table-of-contents__link toc-highlight">Verificación de herencia y cascada</a></li><li><a href="#detección-de-problemas-de-rendimiento" class="table-of-contents__link toc-highlight">Detección de problemas de rendimiento</a></li></ul></li><li><a href="#consejos-para-trabajar-con-propiedades-calculadas" class="table-of-contents__link toc-highlight">Consejos para trabajar con propiedades calculadas</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title"></div><ul class="footer__items clean-list"></ul></div></div></div></footer></div>
+</body>
+</html>

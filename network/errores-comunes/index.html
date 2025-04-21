@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-network docs-version-current docs-doc-page docs-doc-id-errores-comunes" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Errores Comunes de Red | Manual de uso del inspeador de Elementos</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docu.zrenrique.xyz/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docu.zrenrique.xyz/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docu.zrenrique.xyz/network/errores-comunes"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-network-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-network-current"><meta data-rh="true" property="og:title" content="Errores Comunes de Red | Manual de uso del inspeador de Elementos"><meta data-rh="true" name="description" content="Los errores de red son inevitables durante el desarrollo web. El panel Network facilita la identificación y solución de estos problemas. Esta sección cubre los errores más frecuentes y cómo diagnosticarlos."><meta data-rh="true" property="og:description" content="Los errores de red son inevitables durante el desarrollo web. El panel Network facilita la identificación y solución de estos problemas. Esta sección cubre los errores más frecuentes y cómo diagnosticarlos."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docu.zrenrique.xyz/network/errores-comunes"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/network/errores-comunes" hreflang="es"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/network/errores-comunes" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Manual de uso del inspeador de Elementos RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Manual de uso del inspeador de Elementos Atom Feed"><link rel="stylesheet" href="/assets/css/styles.a3188627.css">
+<script src="/assets/js/runtime~main.8ba94fb1.js" defer="defer"></script>
+<script src="/assets/js/main.19133bcd.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Semana 9</b></a><a class="navbar__item navbar__link" href="/dom">DOM</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/network">Network</a><a class="navbar__item navbar__link" href="/performance">Performance</a><a class="navbar__item navbar__link" href="/storage">Storage</a><a class="navbar__item navbar__link" href="/style">Style</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-label="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Barra lateral de Documentos" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/">Introducción</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/herramientas-principales">Herramientas Principales</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/filtros-red">Filtros de Red</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/analisis-solicitudes">Análisis de Solicitudes</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/detalles-peticiones">Detalles de Peticiones</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/tiempos-carga">Tiempos de Carga</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/network/errores-comunes">Errores Comunes</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/casos-practicos">Casos Prácticos</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Rastro de navegación"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Errores Comunes</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><header><h1>Errores Comunes de Red</h1></header>
+<p>Los errores de red son inevitables durante el desarrollo web. El panel Network facilita la identificación y solución de estos problemas. Esta sección cubre los errores más frecuentes y cómo diagnosticarlos.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="códigos-de-estado-http">Códigos de estado HTTP<a href="#códigos-de-estado-http" class="hash-link" aria-label="Enlace directo al Códigos de estado HTTP" title="Enlace directo al Códigos de estado HTTP">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="errores-4xx-cliente">Errores 4xx (Cliente)<a href="#errores-4xx-cliente" class="hash-link" aria-label="Enlace directo al Errores 4xx (Cliente)" title="Enlace directo al Errores 4xx (Cliente)">​</a></h3>
+<ul>
+<li>
+<p><strong>400 Bad Request</strong>: Solicitud malformada</p>
+<ul>
+<li>Causas comunes: Parámetros incorrectos, JSON inválido, cabeceras malformadas</li>
+<li>Diagnóstico: Revisar payload y cabeceras en la pestaña Headers</li>
+</ul>
+</li>
+<li>
+<p><strong>401 Unauthorized</strong>: Falta autenticación</p>
+<ul>
+<li>Causas comunes: Token expirado, credenciales incorrectas</li>
+<li>Diagnóstico: Verificar cabeceras de autenticación y estado de sesión</li>
+</ul>
+</li>
+<li>
+<p><strong>403 Forbidden</strong>: Sin permisos suficientes</p>
+<ul>
+<li>Causas comunes: Permisos insuficientes, IP bloqueada</li>
+<li>Diagnóstico: Verificar roles de usuario y políticas de acceso</li>
+</ul>
+</li>
+<li>
+<p><strong>404 Not Found</strong>: Recurso no encontrado</p>
+<ul>
+<li>Causas comunes: URL incorrecta, recurso eliminado</li>
+<li>Diagnóstico: Verificar ruta en encabezados de solicitud</li>
+</ul>
+</li>
+<li>
+<p><strong>408 Request Timeout</strong>: La solicitud tardó demasiado</p>
+<ul>
+<li>Causas comunes: Sobrecarga del servidor, problemas de red</li>
+<li>Diagnóstico: Verificar tiempos en la pestaña Timing</li>
+</ul>
+</li>
+<li>
+<p><strong>413 Payload Too Large</strong>: Datos enviados excesivos</p>
+<ul>
+<li>Causas comunes: Subida de archivos demasiado grandes</li>
+<li>Diagnóstico: Revisar tamaño de payload en Headers</li>
+</ul>
+</li>
+<li>
+<p><strong>429 Too Many Requests</strong>: Límite de tasa excedido</p>
+<ul>
+<li>Causas comunes: Demasiadas solicitudes en poco tiempo</li>
+<li>Diagnóstico: Revisar cabeceras de límite de tasa y patrones de solicitud</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="errores-5xx-servidor">Errores 5xx (Servidor)<a href="#errores-5xx-servidor" class="hash-link" aria-label="Enlace directo al Errores 5xx (Servidor)" title="Enlace directo al Errores 5xx (Servidor)">​</a></h3>
+<ul>
+<li>
+<p><strong>500 Internal Server Error</strong>: Error general del servidor</p>
+<ul>
+<li>Causas comunes: Excepciones no controladas, bugs en servidor</li>
+<li>Diagnóstico: Examinar respuesta para mensajes de error, revisar logs del servidor</li>
+</ul>
+</li>
+<li>
+<p><strong>502 Bad Gateway</strong>: Error en servidor proxy</p>
+<ul>
+<li>Causas comunes: Servidor upstream caído, respuesta incorrecta</li>
+<li>Diagnóstico: Verificar estado de servicios backend</li>
+</ul>
+</li>
+<li>
+<p><strong>503 Service Unavailable</strong>: Servidor temporalmente no disponible</p>
+<ul>
+<li>Causas comunes: Mantenimiento, sobrecarga</li>
+<li>Diagnóstico: Revisar disponibilidad del servicio, retry-after header</li>
+</ul>
+</li>
+<li>
+<p><strong>504 Gateway Timeout</strong>: Timeout en servidor proxy</p>
+<ul>
+<li>Causas comunes: Backend demasiado lento</li>
+<li>Diagnóstico: Verificar rendimiento de servicios internos</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="errores-de-cors-cross-origin-resource-sharing">Errores de CORS (Cross-Origin Resource Sharing)<a href="#errores-de-cors-cross-origin-resource-sharing" class="hash-link" aria-label="Enlace directo al Errores de CORS (Cross-Origin Resource Sharing)" title="Enlace directo al Errores de CORS (Cross-Origin Resource Sharing)">​</a></h2>
+<ul>
+<li>
+<p><strong>Solicitudes bloqueadas por CORS</strong></p>
+<ul>
+<li>Síntoma: Error en consola &quot;Access to fetch at X from origin Y has been blocked by CORS policy&quot;</li>
+<li>Diagnóstico: Revisar cabeceras de respuesta para Access-Control-Allow-*</li>
+<li>Solución: Configurar correctamente CORS en el servidor</li>
+</ul>
+</li>
+<li>
+<p><strong>Preflight failures</strong></p>
+<ul>
+<li>Síntoma: Error en solicitud OPTIONS previa</li>
+<li>Diagnóstico: Verificar que el servidor responda correctamente a solicitudes OPTIONS</li>
+<li>Solución: Implementar manejo de preflight en servidor</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="errores-de-contenido-mixto">Errores de contenido mixto<a href="#errores-de-contenido-mixto" class="hash-link" aria-label="Enlace directo al Errores de contenido mixto" title="Enlace directo al Errores de contenido mixto">​</a></h2>
+<ul>
+<li><strong>Mixed content blocked</strong>
+<ul>
+<li>Síntoma: Contenido HTTP bloqueado en página HTTPS</li>
+<li>Diagnóstico: Buscar recursos cargados vía HTTP en página segura</li>
+<li>Solución: Actualizar todas las URLs a HTTPS</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="errores-de-certificado-ssltls">Errores de certificado SSL/TLS<a href="#errores-de-certificado-ssltls" class="hash-link" aria-label="Enlace directo al Errores de certificado SSL/TLS" title="Enlace directo al Errores de certificado SSL/TLS">​</a></h2>
+<ul>
+<li><strong>Certificado no válido/expirado</strong>
+<ul>
+<li>Síntoma: Error de seguridad del navegador</li>
+<li>Diagnóstico: Examinar detalles del certificado en pestaña Security</li>
+<li>Solución: Renovar/corregir certificado</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="errores-de-dns">Errores de DNS<a href="#errores-de-dns" class="hash-link" aria-label="Enlace directo al Errores de DNS" title="Enlace directo al Errores de DNS">​</a></h2>
+<ul>
+<li><strong>DNS resolution failed</strong>
+<ul>
+<li>Síntoma: No se puede resolver el nombre de host</li>
+<li>Diagnóstico: Verificar que el dominio esté bien escrito y que el DNS funcione</li>
+<li>Solución: Corregir configuración DNS, verificar conectividad</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="errores-de-conexión-continuación">Errores de conexión (continuación)<a href="#errores-de-conexión-continuación" class="hash-link" aria-label="Enlace directo al Errores de conexión (continuación)" title="Enlace directo al Errores de conexión (continuación)">​</a></h2>
+<ul>
+<li>
+<p><strong>Connection refused/reset</strong></p>
+<ul>
+<li>Síntoma: La conexión es rechazada por el servidor</li>
+<li>Diagnóstico: Verificar que el servidor esté en funcionamiento y acepte conexiones</li>
+<li>Solución: Reiniciar servidor, verificar firewall</li>
+</ul>
+</li>
+<li>
+<p><strong>Connection timed out</strong></p>
+<ul>
+<li>Síntoma: La conexión no se establece en el tiempo esperado</li>
+<li>Diagnóstico: Comprobar conectividad de red y estado del servidor</li>
+<li>Solución: Verificar problemas de red, aumentar timeouts</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="errores-de-caché">Errores de caché<a href="#errores-de-caché" class="hash-link" aria-label="Enlace directo al Errores de caché" title="Enlace directo al Errores de caché">​</a></h2>
+<ul>
+<li>
+<p><strong>Uso de recurso en caché obsoleto</strong></p>
+<ul>
+<li>Síntoma: Los cambios no se reflejan después de actualizar</li>
+<li>Diagnóstico: Verificar cabeceras Cache-Control y ETag en Response Headers</li>
+<li>Solución: Usar Hard Reload (Ctrl+Shift+R), activar &quot;Disable cache&quot;</li>
+</ul>
+</li>
+<li>
+<p><strong>Validación de caché innecesaria</strong></p>
+<ul>
+<li>Síntoma: Solicitudes 304 frecuentes para recursos estáticos</li>
+<li>Diagnóstico: Revisar política de caché en Response Headers</li>
+<li>Solución: Implementar caché de larga duración con fingerprinting</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="errores-de-websocket">Errores de WebSocket<a href="#errores-de-websocket" class="hash-link" aria-label="Enlace directo al Errores de WebSocket" title="Enlace directo al Errores de WebSocket">​</a></h2>
+<ul>
+<li>
+<p><strong>WebSocket handshake failure</strong></p>
+<ul>
+<li>Síntoma: La conexión WebSocket no se establece</li>
+<li>Diagnóstico: Revisar negociación inicial HTTP y códigos de error</li>
+<li>Solución: Verificar protocolos, compatibilidad de proxy/firewall</li>
+</ul>
+</li>
+<li>
+<p><strong>WebSocket disconnection</strong></p>
+<ul>
+<li>Síntoma: La conexión se cierra inesperadamente</li>
+<li>Diagnóstico: Examinar códigos de cierre y mensajes</li>
+<li>Solución: Implementar reconexión automática, resolver problemas de timeout</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="problemas-de-rendimiento">Problemas de rendimiento<a href="#problemas-de-rendimiento" class="hash-link" aria-label="Enlace directo al Problemas de rendimiento" title="Enlace directo al Problemas de rendimiento">​</a></h2>
+<ul>
+<li>
+<p><strong>Waterfall en escalera</strong></p>
+<ul>
+<li>Síntoma: Recursos cargados secuencialmente en lugar de en paralelo</li>
+<li>Diagnóstico: Revisar dependencias en la cascada de solicitudes</li>
+<li>Solución: Optimizar orden de carga, implementar preloading</li>
+</ul>
+</li>
+<li>
+<p><strong>TTFB (Time To First Byte) excesivo</strong></p>
+<ul>
+<li>Síntoma: Barra azul clara larga en la visualización de tiempos</li>
+<li>Diagnóstico: Verificar tiempo de procesamiento del servidor</li>
+<li>Solución: Optimizar backend, implementar caching, CDN</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="depuración-efectiva-de-errores">Depuración efectiva de errores<a href="#depuración-efectiva-de-errores" class="hash-link" aria-label="Enlace directo al Depuración efectiva de errores" title="Enlace directo al Depuración efectiva de errores">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="herramientas-integradas">Herramientas integradas<a href="#herramientas-integradas" class="hash-link" aria-label="Enlace directo al Herramientas integradas" title="Enlace directo al Herramientas integradas">​</a></h3>
+<ol>
+<li><strong>Preserve log</strong>: Mantener registro entre navegaciones</li>
+<li><strong>Disable cache</strong>: Evitar problemas de caché</li>
+<li><strong>Block requests</strong>: Simular fallos de recursos específicos</li>
+<li><strong>Throttling</strong>: Probar bajo diferentes condiciones de red</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="técnicas-de-diagnóstico">Técnicas de diagnóstico<a href="#técnicas-de-diagnóstico" class="hash-link" aria-label="Enlace directo al Técnicas de diagnóstico" title="Enlace directo al Técnicas de diagnóstico">​</a></h3>
+<ol>
+<li><strong>Comparación</strong>: Contrastar solicitudes exitosas vs. fallidas</li>
+<li><strong>Aislamiento</strong>: Reproducir el error en un entorno simplificado</li>
+<li><strong>Reproductibilidad</strong>: Determinar si el error es consistente o intermitente</li>
+<li><strong>Análisis de secuencia</strong>: Identificar patrones o dependencias en errores</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="documentación-de-errores">Documentación de errores<a href="#documentación-de-errores" class="hash-link" aria-label="Enlace directo al Documentación de errores" title="Enlace directo al Documentación de errores">​</a></h3>
+<p>Al reportar problemas:</p>
+<ol>
+<li>Captura el archivo HAR completo</li>
+<li>Incluye capturas de pantalla del error</li>
+<li>Documenta los pasos exactos para reproducir</li>
+<li>Registra información contextual (navegador, sistema operativo, red)</li>
+</ol></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/network/tiempos-carga"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">Tiempos de Carga</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/network/casos-practicos"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">Casos Prácticos</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#códigos-de-estado-http" class="table-of-contents__link toc-highlight">Códigos de estado HTTP</a><ul><li><a href="#errores-4xx-cliente" class="table-of-contents__link toc-highlight">Errores 4xx (Cliente)</a></li><li><a href="#errores-5xx-servidor" class="table-of-contents__link toc-highlight">Errores 5xx (Servidor)</a></li></ul></li><li><a href="#errores-de-cors-cross-origin-resource-sharing" class="table-of-contents__link toc-highlight">Errores de CORS (Cross-Origin Resource Sharing)</a></li><li><a href="#errores-de-contenido-mixto" class="table-of-contents__link toc-highlight">Errores de contenido mixto</a></li><li><a href="#errores-de-certificado-ssltls" class="table-of-contents__link toc-highlight">Errores de certificado SSL/TLS</a></li><li><a href="#errores-de-dns" class="table-of-contents__link toc-highlight">Errores de DNS</a></li><li><a href="#errores-de-conexión-continuación" class="table-of-contents__link toc-highlight">Errores de conexión (continuación)</a></li><li><a href="#errores-de-caché" class="table-of-contents__link toc-highlight">Errores de caché</a></li><li><a href="#errores-de-websocket" class="table-of-contents__link toc-highlight">Errores de WebSocket</a></li><li><a href="#problemas-de-rendimiento" class="table-of-contents__link toc-highlight">Problemas de rendimiento</a></li><li><a href="#depuración-efectiva-de-errores" class="table-of-contents__link toc-highlight">Depuración efectiva de errores</a><ul><li><a href="#herramientas-integradas" class="table-of-contents__link toc-highlight">Herramientas integradas</a></li><li><a href="#técnicas-de-diagnóstico" class="table-of-contents__link toc-highlight">Técnicas de diagnóstico</a></li><li><a href="#documentación-de-errores" class="table-of-contents__link toc-highlight">Documentación de errores</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title"></div><ul class="footer__items clean-list"></ul></div></div></div></footer></div>
+</body>
+</html>

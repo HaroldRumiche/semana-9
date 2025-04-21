@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-network docs-version-current docs-doc-page docs-doc-id-analisis-solicitudes" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Análisis de Solicitudes | Manual de uso del inspeador de Elementos</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docu.zrenrique.xyz/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docu.zrenrique.xyz/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docu.zrenrique.xyz/network/analisis-solicitudes"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-network-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-network-current"><meta data-rh="true" property="og:title" content="Análisis de Solicitudes | Manual de uso del inspeador de Elementos"><meta data-rh="true" name="description" content="El análisis efectivo de las solicitudes de red es fundamental para optimizar el rendimiento y solucionar problemas en aplicaciones web. Esta sección explora técnicas para examinar y entender las solicitudes capturadas en el panel Network."><meta data-rh="true" property="og:description" content="El análisis efectivo de las solicitudes de red es fundamental para optimizar el rendimiento y solucionar problemas en aplicaciones web. Esta sección explora técnicas para examinar y entender las solicitudes capturadas en el panel Network."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docu.zrenrique.xyz/network/analisis-solicitudes"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/network/analisis-solicitudes" hreflang="es"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/network/analisis-solicitudes" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Manual de uso del inspeador de Elementos RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Manual de uso del inspeador de Elementos Atom Feed"><link rel="stylesheet" href="/assets/css/styles.a3188627.css">
+<script src="/assets/js/runtime~main.8ba94fb1.js" defer="defer"></script>
+<script src="/assets/js/main.19133bcd.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Semana 9</b></a><a class="navbar__item navbar__link" href="/dom">DOM</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/network">Network</a><a class="navbar__item navbar__link" href="/performance">Performance</a><a class="navbar__item navbar__link" href="/storage">Storage</a><a class="navbar__item navbar__link" href="/style">Style</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-label="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Barra lateral de Documentos" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/">Introducción</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/herramientas-principales">Herramientas Principales</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/filtros-red">Filtros de Red</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/network/analisis-solicitudes">Análisis de Solicitudes</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/detalles-peticiones">Detalles de Peticiones</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/tiempos-carga">Tiempos de Carga</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/errores-comunes">Errores Comunes</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/casos-practicos">Casos Prácticos</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Rastro de navegación"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Análisis de Solicitudes</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><header><h1>Análisis de Solicitudes</h1></header>
+<p>El análisis efectivo de las solicitudes de red es fundamental para optimizar el rendimiento y solucionar problemas en aplicaciones web. Esta sección explora técnicas para examinar y entender las solicitudes capturadas en el panel Network.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="interpretación-de-la-tabla-de-solicitudes">Interpretación de la tabla de solicitudes<a href="#interpretación-de-la-tabla-de-solicitudes" class="hash-link" aria-label="Enlace directo al Interpretación de la tabla de solicitudes" title="Enlace directo al Interpretación de la tabla de solicitudes">​</a></h2>
+<p>La tabla del panel Network ofrece una visión general con información clave:</p>
+<ul>
+<li><strong>Estado de color</strong>: Verde (exitoso), Rojo (error), Amarillo (redirección)</li>
+<li><strong>Tiempo de solicitud</strong>: La longitud de la barra indica la duración relativa</li>
+<li><strong>Orden de solicitud</strong>: La secuencia en que ocurrieron las peticiones</li>
+<li><strong>Dependencias</strong>: Cómo las solicitudes se relacionan entre sí</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="identificar-solicitudes-problemáticas">Identificar solicitudes problemáticas<a href="#identificar-solicitudes-problemáticas" class="hash-link" aria-label="Enlace directo al Identificar solicitudes problemáticas" title="Enlace directo al Identificar solicitudes problemáticas">​</a></h2>
+<p>Busca estos indicadores de problemas potenciales:</p>
+<ul>
+<li><strong>Códigos de error</strong> (4xx, 5xx)</li>
+<li><strong>Solicitudes excesivamente largas</strong> (barras extendidas)</li>
+<li><strong>Múltiples redirecciones</strong> (códigos 301, 302)</li>
+<li><strong>Recursos bloqueados</strong> (por CORS, CSP, etc.)</li>
+<li><strong>Recursos duplicados</strong> (misma URL solicitada múltiples veces)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="análisis-por-grupo">Análisis por grupo<a href="#análisis-por-grupo" class="hash-link" aria-label="Enlace directo al Análisis por grupo" title="Enlace directo al Análisis por grupo">​</a></h2>
+<p>Agrupar solicitudes facilita la identificación de patrones:</p>
+<ol>
+<li>
+<p>Haz clic en el encabezado de columna para ordenar</p>
+<ul>
+<li>Por dominio (para identificar servicios de terceros)</li>
+<li>Por tamaño (para encontrar archivos grandes)</li>
+<li>Por tiempo (para identificar cuellos de botella)</li>
+<li>Por tipo (para agrupar recursos similares)</li>
+</ul>
+</li>
+<li>
+<p>Utiliza las vistas especializadas:</p>
+<ul>
+<li><strong>Group by frame</strong>: Agrupa por marco/iframe</li>
+<li><strong>Group by domain</strong>: Organiza por servidor de origen</li>
+<li><strong>Group by initiator</strong>: Agrupa por lo que causó la solicitud</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="análisis-de-la-cascada-waterfall">Análisis de la cascada (waterfall)<a href="#análisis-de-la-cascada-waterfall" class="hash-link" aria-label="Enlace directo al Análisis de la cascada (waterfall)" title="Enlace directo al Análisis de la cascada (waterfall)">​</a></h2>
+<p>La visualización en cascada revela:</p>
+<ul>
+<li><strong>Bloqueo de renderizado</strong>: Recursos que detienen la carga de la página</li>
+<li><strong>Paralelización</strong>: Cómo el navegador gestiona solicitudes simultáneas</li>
+<li><strong>Prioridad</strong>: Qué recursos se cargan primero</li>
+<li><strong>Interdependencias</strong>: Recursos que esperan a otros</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="patrones-comunes-en-la-cascada">Patrones comunes en la cascada<a href="#patrones-comunes-en-la-cascada" class="hash-link" aria-label="Enlace directo al Patrones comunes en la cascada" title="Enlace directo al Patrones comunes en la cascada">​</a></h3>
+<ul>
+<li><strong>Patrón escalera</strong>: Solicitudes secuenciales (potencialmente problemático)</li>
+<li><strong>Patrón paralelo</strong>: Solicitudes simultáneas (eficiente)</li>
+<li><strong>Patrón de espera</strong>: Largas barras azules claras (problemas de TTFB)</li>
+<li><strong>Patrón de bloqueo</strong>: Recursos críticos que retrasan otros</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="análisis-comparativo">Análisis comparativo<a href="#análisis-comparativo" class="hash-link" aria-label="Enlace directo al Análisis comparativo" title="Enlace directo al Análisis comparativo">​</a></h2>
+<p>Para entender el impacto de los cambios:</p>
+<ol>
+<li>Captura un baseline (línea base) de rendimiento</li>
+<li>Guarda la sesión como archivo HAR</li>
+<li>Realiza cambios en la aplicación</li>
+<li>Captura una nueva sesión</li>
+<li>Compara las dos capturas para identificar mejoras o degradaciones</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="análisis-de-recursos-individuales">Análisis de recursos individuales<a href="#análisis-de-recursos-individuales" class="hash-link" aria-label="Enlace directo al Análisis de recursos individuales" title="Enlace directo al Análisis de recursos individuales">​</a></h2>
+<p>Para cada recurso importante:</p>
+<ol>
+<li>Revisa si es realmente necesario</li>
+<li>Verifica su tamaño (oportunidades de compresión)</li>
+<li>Comprueba encabezados de caché (oportunidades de optimización)</li>
+<li>Evalúa si podría cargarse bajo demanda o de forma asíncrona</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="métricas-clave-a-analizar">Métricas clave a analizar<a href="#métricas-clave-a-analizar" class="hash-link" aria-label="Enlace directo al Métricas clave a analizar" title="Enlace directo al Métricas clave a analizar">​</a></h2>
+<ul>
+<li><strong>Número total de solicitudes</strong>: Menos es generalmente mejor</li>
+<li><strong>Tamaño total transferido</strong>: Impacta directamente en el tiempo de carga</li>
+<li><strong>Tiempo hasta First Contentful Paint</strong>: Impacta en la percepción de velocidad</li>
+<li><strong>Tiempo hasta Interactive</strong>: Cuándo el usuario puede interactuar</li>
+<li><strong>Solicitudes bloqueantes</strong>: Recursos que retrasan la carga inicial</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="herramientas-complementarias">Herramientas complementarias<a href="#herramientas-complementarias" class="hash-link" aria-label="Enlace directo al Herramientas complementarias" title="Enlace directo al Herramientas complementarias">​</a></h2>
+<p>El análisis de solicitudes se beneficia de otras herramientas del inspector:</p>
+<ul>
+<li><strong>Lighthouse</strong>: Para evaluación general del rendimiento</li>
+<li><strong>Performance</strong>: Para análisis detallado de rendimiento</li>
+<li><strong>Application</strong>: Para revisar políticas de caché y almacenamiento</li>
+<li><strong>Security</strong>: Para verificar problemas de certificados y seguridad</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="técnicas-de-análisis-avanzado">Técnicas de análisis avanzado<a href="#técnicas-de-análisis-avanzado" class="hash-link" aria-label="Enlace directo al Técnicas de análisis avanzado" title="Enlace directo al Técnicas de análisis avanzado">​</a></h2>
+<ul>
+<li><strong>Comparación A/B</strong>: Analiza el mismo sitio con y sin ciertos recursos</li>
+<li><strong>Benchmarking competitivo</strong>: Compara con sitios similares</li>
+<li><strong>Análisis de tendencias</strong>: Monitoriza cambios a lo largo del tiempo</li>
+<li><strong>Análisis de variabilidad</strong>: Compara cargas repetidas para identificar inconsistencias</li>
+</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/network/filtros-red"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">Filtros de Red</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/network/detalles-peticiones"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">Detalles de Peticiones</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#interpretación-de-la-tabla-de-solicitudes" class="table-of-contents__link toc-highlight">Interpretación de la tabla de solicitudes</a></li><li><a href="#identificar-solicitudes-problemáticas" class="table-of-contents__link toc-highlight">Identificar solicitudes problemáticas</a></li><li><a href="#análisis-por-grupo" class="table-of-contents__link toc-highlight">Análisis por grupo</a></li><li><a href="#análisis-de-la-cascada-waterfall" class="table-of-contents__link toc-highlight">Análisis de la cascada (waterfall)</a><ul><li><a href="#patrones-comunes-en-la-cascada" class="table-of-contents__link toc-highlight">Patrones comunes en la cascada</a></li></ul></li><li><a href="#análisis-comparativo" class="table-of-contents__link toc-highlight">Análisis comparativo</a></li><li><a href="#análisis-de-recursos-individuales" class="table-of-contents__link toc-highlight">Análisis de recursos individuales</a></li><li><a href="#métricas-clave-a-analizar" class="table-of-contents__link toc-highlight">Métricas clave a analizar</a></li><li><a href="#herramientas-complementarias" class="table-of-contents__link toc-highlight">Herramientas complementarias</a></li><li><a href="#técnicas-de-análisis-avanzado" class="table-of-contents__link toc-highlight">Técnicas de análisis avanzado</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title"></div><ul class="footer__items clean-list"></ul></div></div></div></footer></div>
+</body>
+</html>

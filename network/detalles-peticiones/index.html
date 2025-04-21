@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-network docs-version-current docs-doc-page docs-doc-id-detalles-peticiones" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Detalles de Peticiones | Manual de uso del inspeador de Elementos</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docu.zrenrique.xyz/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docu.zrenrique.xyz/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docu.zrenrique.xyz/network/detalles-peticiones"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-network-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-network-current"><meta data-rh="true" property="og:title" content="Detalles de Peticiones | Manual de uso del inspeador de Elementos"><meta data-rh="true" name="description" content="Al seleccionar cualquier solicitud en el panel Network, se abre un panel de detalles con información exhaustiva sobre esa petición específica. Entender estos detalles es crucial para depurar problemas de red y optimizar las comunicaciones."><meta data-rh="true" property="og:description" content="Al seleccionar cualquier solicitud en el panel Network, se abre un panel de detalles con información exhaustiva sobre esa petición específica. Entender estos detalles es crucial para depurar problemas de red y optimizar las comunicaciones."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docu.zrenrique.xyz/network/detalles-peticiones"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/network/detalles-peticiones" hreflang="es"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/network/detalles-peticiones" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Manual de uso del inspeador de Elementos RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Manual de uso del inspeador de Elementos Atom Feed"><link rel="stylesheet" href="/assets/css/styles.a3188627.css">
+<script src="/assets/js/runtime~main.8ba94fb1.js" defer="defer"></script>
+<script src="/assets/js/main.19133bcd.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Semana 9</b></a><a class="navbar__item navbar__link" href="/dom">DOM</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/network">Network</a><a class="navbar__item navbar__link" href="/performance">Performance</a><a class="navbar__item navbar__link" href="/storage">Storage</a><a class="navbar__item navbar__link" href="/style">Style</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-label="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Barra lateral de Documentos" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/">Introducción</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/herramientas-principales">Herramientas Principales</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/filtros-red">Filtros de Red</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/analisis-solicitudes">Análisis de Solicitudes</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/network/detalles-peticiones">Detalles de Peticiones</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/tiempos-carga">Tiempos de Carga</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/errores-comunes">Errores Comunes</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/network/casos-practicos">Casos Prácticos</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Rastro de navegación"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Detalles de Peticiones</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><header><h1>Detalles de Peticiones</h1></header>
+<p>Al seleccionar cualquier solicitud en el panel Network, se abre un panel de detalles con información exhaustiva sobre esa petición específica. Entender estos detalles es crucial para depurar problemas de red y optimizar las comunicaciones.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="panel-de-headers">Panel de Headers<a href="#panel-de-headers" class="hash-link" aria-label="Enlace directo al Panel de Headers" title="Enlace directo al Panel de Headers">​</a></h2>
+<p>La pestaña Headers muestra todos los encabezados HTTP intercambiados:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="request-headers-encabezados-de-solicitud">Request Headers (Encabezados de solicitud)<a href="#request-headers-encabezados-de-solicitud" class="hash-link" aria-label="Enlace directo al Request Headers (Encabezados de solicitud)" title="Enlace directo al Request Headers (Encabezados de solicitud)">​</a></h3>
+<p>Información enviada por el navegador al servidor:</p>
+<ul>
+<li><strong>Method &amp; URL</strong>: Método HTTP y URL completa</li>
+<li><strong>User-Agent</strong>: Identificación del navegador/cliente</li>
+<li><strong>Accept</strong>: Tipos de contenido que el cliente acepta</li>
+<li><strong>Cookie</strong>: Cookies enviadas al servidor</li>
+<li><strong>Authorization</strong>: Credenciales de autenticación (si existen)</li>
+<li><strong>Referer</strong>: Página desde la que se originó la solicitud</li>
+<li><strong>Origin</strong>: Origen para solicitudes CORS</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="response-headers-encabezados-de-respuesta">Response Headers (Encabezados de respuesta)<a href="#response-headers-encabezados-de-respuesta" class="hash-link" aria-label="Enlace directo al Response Headers (Encabezados de respuesta)" title="Enlace directo al Response Headers (Encabezados de respuesta)">​</a></h3>
+<p>Información enviada por el servidor al navegador:</p>
+<ul>
+<li><strong>Status Code &amp; Text</strong>: Código de estado HTTP y descripción</li>
+<li><strong>Content-Type</strong>: Tipo MIME del contenido</li>
+<li><strong>Content-Length</strong>: Tamaño del contenido</li>
+<li><strong>Cache-Control</strong>: Directivas de caché</li>
+<li><strong>Set-Cookie</strong>: Cookies que el servidor establece</li>
+<li><strong>Access-Control-Allow-</strong>*: Configuración CORS</li>
+<li><strong>Content-Encoding</strong>: Método de compresión utilizado</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="visión-general">Visión general<a href="#visión-general" class="hash-link" aria-label="Enlace directo al Visión general" title="Enlace directo al Visión general">​</a></h3>
+<ul>
+<li><strong>General</strong>: Muestra la URL, método y código de estado</li>
+<li><strong>View source</strong>: Ver encabezados en formato raw</li>
+<li><strong>Filter</strong>: Filtrar por nombre de encabezado</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="panel-de-preview">Panel de Preview<a href="#panel-de-preview" class="hash-link" aria-label="Enlace directo al Panel de Preview" title="Enlace directo al Panel de Preview">​</a></h2>
+<p>Ofrece una vista previa formateada de la respuesta:</p>
+<ul>
+<li><strong>HTML</strong>: Vista renderizada para documentos HTML</li>
+<li><strong>JSON</strong>: Estructura formateada y navegable para datos JSON</li>
+<li><strong>XML</strong>: Estructura formateada para XML</li>
+<li><strong>Imágenes</strong>: Vista previa de imágenes</li>
+<li><strong>Fuentes</strong>: Información sobre tipografías</li>
+<li><strong>CSS</strong>: Estilos formateados</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="panel-de-response">Panel de Response<a href="#panel-de-response" class="hash-link" aria-label="Enlace directo al Panel de Response" title="Enlace directo al Panel de Response">​</a></h2>
+<p>Muestra el contenido completo de la respuesta:</p>
+<ul>
+<li><strong>Raw</strong>: Datos sin procesar</li>
+<li><strong>Formateado</strong>: Con sintaxis destacada para código</li>
+<li><strong>Search</strong>: Búsqueda dentro del contenido</li>
+<li><strong>Copy</strong>: Opciones para copiar el contenido</li>
+<li><strong>Pretty Print</strong>: Formatea código minificado (botón <!-- -->)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="panel-de-timing">Panel de Timing<a href="#panel-de-timing" class="hash-link" aria-label="Enlace directo al Panel de Timing" title="Enlace directo al Panel de Timing">​</a></h2>
+<p>Ofrece un desglose detallado de los tiempos de la solicitud:</p>
+<ul>
+<li><strong>Queuing</strong>: Tiempo en cola antes de iniciar</li>
+<li><strong>DNS Lookup</strong>: Resolución del nombre de dominio</li>
+<li><strong>Initial Connection</strong>: Establecimiento de conexión TCP</li>
+<li><strong>SSL</strong>: Negociación TLS/SSL</li>
+<li><strong>Request Sent</strong>: Envío de la solicitud</li>
+<li><strong>Waiting (TTFB)</strong>: Tiempo hasta el primer byte</li>
+<li><strong>Content Download</strong>: Descarga del contenido</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="gráfico-de-tiempo">Gráfico de tiempo<a href="#gráfico-de-tiempo" class="hash-link" aria-label="Enlace directo al Gráfico de tiempo" title="Enlace directo al Gráfico de tiempo">​</a></h3>
+<p>Visualización gráfica que muestra:</p>
+<ul>
+<li>Colores diferentes para cada fase</li>
+<li>Proporción relativa de tiempo en cada etapa</li>
+<li>Duración total de la solicitud</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="panel-de-initiator">Panel de Initiator<a href="#panel-de-initiator" class="hash-link" aria-label="Enlace directo al Panel de Initiator" title="Enlace directo al Panel de Initiator">​</a></h2>
+<p>Muestra qué causó la solicitud:</p>
+<ul>
+<li><strong>Parser</strong>: Generada por el análisis HTML</li>
+<li><strong>Script</strong>: Provocada por código JavaScript</li>
+<li><strong>Pila de llamadas</strong>: Secuencia de funciones que llevaron a la solicitud</li>
+<li><strong>Redirects</strong>: Cadena de redirecciones (si aplica)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="panel-de-cookies">Panel de Cookies<a href="#panel-de-cookies" class="hash-link" aria-label="Enlace directo al Panel de Cookies" title="Enlace directo al Panel de Cookies">​</a></h2>
+<p>Muestra las cookies relacionadas con la solicitud:</p>
+<ul>
+<li><strong>Request Cookies</strong>: Enviadas al servidor</li>
+<li><strong>Response Cookies</strong>: Recibidas del servidor</li>
+<li><strong>Valores</strong>: Nombre, valor, dominio, expiración, etc.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="panel-de-websocket">Panel de WebSocket<a href="#panel-de-websocket" class="hash-link" aria-label="Enlace directo al Panel de WebSocket" title="Enlace directo al Panel de WebSocket">​</a></h2>
+<p>Para conexiones WebSocket, muestra:</p>
+<ul>
+<li><strong>Mensajes enviados y recibidos</strong></li>
+<li><strong>Datos en formato de texto o binario</strong></li>
+<li><strong>Cronología de la comunicación</strong></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="panel-de-eventstream">Panel de EventStream<a href="#panel-de-eventstream" class="hash-link" aria-label="Enlace directo al Panel de EventStream" title="Enlace directo al Panel de EventStream">​</a></h2>
+<p>Para Server-Sent Events (SSE):</p>
+<ul>
+<li><strong>Mensajes recibidos</strong></li>
+<li><strong>ID de eventos</strong></li>
+<li><strong>Tipos de eventos</strong></li>
+<li><strong>Secuencia temporal</strong></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="acciones-adicionales">Acciones adicionales<a href="#acciones-adicionales" class="hash-link" aria-label="Enlace directo al Acciones adicionales" title="Enlace directo al Acciones adicionales">​</a></h2>
+<p>Desde el panel de detalles, puedes:</p>
+<ul>
+<li><strong>Copiar como cURL</strong>: Para reproducir la solicitud en terminal</li>
+<li><strong>Guardar contenido</strong>: Descargar la respuesta como archivo</li>
+<li><strong>Reenviar solicitud</strong>: Repetir la petición</li>
+<li><strong>Bloquear URL</strong>: Prevenir futuras solicitudes a esta URL</li>
+<li><strong>Copy value</strong>: Copiar valores específicos de encabezados o parámetros</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="análisis-de-parámetros">Análisis de parámetros<a href="#análisis-de-parámetros" class="hash-link" aria-label="Enlace directo al Análisis de parámetros" title="Enlace directo al Análisis de parámetros">​</a></h2>
+<p>Para solicitudes con parámetros (GET/POST):</p>
+<ul>
+<li><strong>URL params</strong>: Parámetros en la URL (query string)</li>
+<li><strong>Form data</strong>: Datos enviados como formulario</li>
+<li><strong>Request payload</strong>: Datos enviados como JSON u otro formato</li>
+</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/network/analisis-solicitudes"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">Análisis de Solicitudes</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/network/tiempos-carga"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">Tiempos de Carga</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#panel-de-headers" class="table-of-contents__link toc-highlight">Panel de Headers</a><ul><li><a href="#request-headers-encabezados-de-solicitud" class="table-of-contents__link toc-highlight">Request Headers (Encabezados de solicitud)</a></li><li><a href="#response-headers-encabezados-de-respuesta" class="table-of-contents__link toc-highlight">Response Headers (Encabezados de respuesta)</a></li><li><a href="#visión-general" class="table-of-contents__link toc-highlight">Visión general</a></li></ul></li><li><a href="#panel-de-preview" class="table-of-contents__link toc-highlight">Panel de Preview</a></li><li><a href="#panel-de-response" class="table-of-contents__link toc-highlight">Panel de Response</a></li><li><a href="#panel-de-timing" class="table-of-contents__link toc-highlight">Panel de Timing</a><ul><li><a href="#gráfico-de-tiempo" class="table-of-contents__link toc-highlight">Gráfico de tiempo</a></li></ul></li><li><a href="#panel-de-initiator" class="table-of-contents__link toc-highlight">Panel de Initiator</a></li><li><a href="#panel-de-cookies" class="table-of-contents__link toc-highlight">Panel de Cookies</a></li><li><a href="#panel-de-websocket" class="table-of-contents__link toc-highlight">Panel de WebSocket</a></li><li><a href="#panel-de-eventstream" class="table-of-contents__link toc-highlight">Panel de EventStream</a></li><li><a href="#acciones-adicionales" class="table-of-contents__link toc-highlight">Acciones adicionales</a></li><li><a href="#análisis-de-parámetros" class="table-of-contents__link toc-highlight">Análisis de parámetros</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title"></div><ul class="footer__items clean-list"></ul></div></div></div></footer></div>
+</body>
+</html>
