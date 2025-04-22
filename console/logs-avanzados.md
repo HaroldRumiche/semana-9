@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Logs Avanzados'
+id : logs-avanzados
 sidebar_position: 7
 ---
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Advertencias Comunes'
+id : advertencias-comunes
 sidebar_position: 6
 ---
 

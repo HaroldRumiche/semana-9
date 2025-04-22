@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Service Workers'
+id : service-workers
 sidebar_position: 3
 ---
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Resaltar elementos'
+id : resaltar-elementos
 sidebar_position: 8
 ---
 

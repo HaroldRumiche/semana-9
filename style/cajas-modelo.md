@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Modelo de Cajas'
+id : cajas-modelo
 sidebar_position: 5
 ---
 

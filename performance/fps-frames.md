@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Monitor de FPS'
+id : fps-frames
 sidebar_position: 4
 ---
 

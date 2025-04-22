@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'SessionStorage'
+id : sessionstorage
 sidebar_position: 4
 ---
 

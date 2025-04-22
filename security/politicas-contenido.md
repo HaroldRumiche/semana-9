@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Políticas de Contenido'
+id : politicas-contenido
 sidebar_position: 4
 ---
 

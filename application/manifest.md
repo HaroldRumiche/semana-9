@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Manifest'
+id : manifest
 sidebar_position: 2
 ---
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Objetos y Vistas'
+id : objetos-y-vistas
 sidebar_position: 6
 ---
 

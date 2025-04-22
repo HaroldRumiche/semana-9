@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Copiar elementos'
+id : copiar-elementos
 sidebar_position: 7
 ---
 

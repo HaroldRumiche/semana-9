@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Certificados'
+id : certificados
 sidebar_position: 2
 ---
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Inspeccionar Estilos'
+id : inspeccionar-estilos
 sidebar_position: 2
 ---
 

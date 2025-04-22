@@ -1,0 +1,9 @@
+{
+  "label": "Memory",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "slug": "menory",
+    "description": "Manual de uso del Inspectorde Elementos sección Memory de la Consola de Desarrollo de Google Chrome."
+  }
+}

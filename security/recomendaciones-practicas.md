@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Recomendaciones Prácticas'
+id : recomendaciones-practicas
 sidebar_position: 7
 ---
 

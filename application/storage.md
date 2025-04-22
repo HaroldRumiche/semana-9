@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Storage'
+id : storage
 sidebar_position: 4
 ---
 

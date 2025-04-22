@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Reglas CSS'
+id : reglas-css
 sidebar_position: 3
 ---
 

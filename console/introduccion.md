@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Introducción'
+id: introduccion
 sidebar_position: 1
 slug: /
 ---

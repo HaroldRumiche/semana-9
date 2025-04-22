@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Contenido Mixto'
+id : contenido-mixto
 sidebar_position: 3
 ---
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Navegar por el DOM'
+id : navegar-dom
 sidebar_position: 2
 ---
 

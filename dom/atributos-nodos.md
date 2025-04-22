@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Atributos de nodos'
+id : atributos-nodos
 sidebar_position: 5
 ---
 

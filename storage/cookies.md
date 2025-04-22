@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Cookies'
+id : cookies
 sidebar_position: 2
 ---
 

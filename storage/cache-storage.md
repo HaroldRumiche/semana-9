@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Cache Storage'
+id : cache-storage
 sidebar_position: 6
 ---
 

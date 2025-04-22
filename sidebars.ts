@@ -31,3 +31,54 @@ const sidebars: SidebarsConfig = {
 };
 
 export default sidebars;
+
+/*import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+
+const sidebars: SidebarsConfig = {
+  tutorialSidebar: [
+    {
+      type: 'doc',
+      id: 'introduccion', // <- este es tu intro.md
+      label: '📘 Introducción al Manual',
+    },
+    {
+      type: 'category',
+      label: '📖 Introducción',
+      items: [
+        {type: 'doc', id: 'introduccion/que-es-inspector', label: '🔍  ¿Qué es el Inspector?'},
+        {type: 'doc', id: 'introduccion/herramientas-disponibles', label: '🛠️ Herramientas disponibles'},
+        {type: 'doc', id: 'introduccion/cuando-usarlo', label: '⏱️ ¿Cuándo usarlo?'},
+        {type: 'doc', id: 'introduccion/beneficios-desarrollador', label: '💡 Beneficios para el desarrollador'},
+      ],
+    },
+    {
+      type: 'category',
+      label: '🧭 Acceso y Navegación',
+      items: [
+        {type: 'doc', id: 'acceso-navegacion/como-acceder', label: '🔓 Cómo acceder'},
+        {type: 'doc', id: 'acceso-navegacion/navegacion-general', label: '🗂️ Navegación general'},
+        {type: 'doc', id: 'acceso-navegacion/atajos-teclado', label: '⌨️ Atajos de teclado'},
+        {type: 'doc', id: 'acceso-navegacion/personalizacion-panel', label: '🎨 Personalización del panel'},
+        {type: 'doc', id: 'acceso-navegacion/tips-rapidos', label: '⚡ Tips rápidos'},
+      ],
+    },
+    {
+      type: 'category',
+      label: '🧠 Memoria',
+      items: [
+        {type: 'doc', id: 'memory/introduccion', label: '📘 Introducción'},
+        {type: 'doc', id: 'memory/garbage-collection', label: '🗑️ Garbage Collection'},
+        {type: 'doc', id: 'memory/tomar-snapshot', label: '📸 Tomar Snapshot'},
+        {type: 'doc', id: 'memory/detectar-fugas', label: '🐛 Detectar Fugas'},
+        {type: 'doc', id: 'memory/heap-diff', label: '📊 Heap Diff'},
+        {type: 'doc', id: 'memory/allocation-instrumentation', label: '📈 Allocation Instr.'},
+        {type: 'doc', id: 'memory/retainer-paths', label: '🔗 Retainer Paths'},
+        {type: 'doc', id: 'memory/consejos-optimizacion', label: '🚀 Consejos de Optimización'},
+        {type: 'doc', id: 'memory/overview-panel', label: '📋 Panel Overview'},
+      ],
+    },
+  ],
+};
+
+export default sidebars;
+*/ 

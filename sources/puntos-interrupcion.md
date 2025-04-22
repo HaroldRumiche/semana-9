@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Puntos de interrupción'
+id : puntos-interrupcion
 sidebar_position: 3
 ---
 

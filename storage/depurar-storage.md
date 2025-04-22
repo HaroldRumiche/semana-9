@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Depurar Storage'
+id : depurar-storage
 sidebar_position: 8
 ---
 

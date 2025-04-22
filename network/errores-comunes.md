@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Errores Comunes'
+id : errores-comunes
 sidebar_position: 7
 ---
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Estructura del documento'
+id : estructura-documento
 sidebar_position: 6
 ---
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Tiempos de Carga'
+id : tiempos-carga
 sidebar_position: 6
 ---
 

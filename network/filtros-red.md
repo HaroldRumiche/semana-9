@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Filtros de Red'
+id : filtros-red
 sidebar_position: 3
 ---
 

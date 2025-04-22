@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Panel de Consola'
+id : panel-consola
 sidebar_position: 2
 ---
 

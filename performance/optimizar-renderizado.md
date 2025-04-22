@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Optimizar Renderizado'
+id : optimizar-renderizado
 sidebar_position: 7
 ---
 

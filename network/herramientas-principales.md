@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Herramientas Principales'
+id : herramientas-principales
 sidebar_position: 2
 ---
 

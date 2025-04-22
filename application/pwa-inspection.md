@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'PWA Inspection'
+id : pwa-inspection
 sidebar_position: 8
 ---
 

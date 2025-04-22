@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'LocalStorage'
+id : localstorage
 sidebar_position: 3
 ---
 

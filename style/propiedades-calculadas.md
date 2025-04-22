@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Propiedades Calculadas'
+id : propiedades-calculadas
 sidebar_position: 4
 ---
 

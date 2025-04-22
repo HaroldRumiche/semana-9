@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Depuración con la Consola'
+id : depuracion-consola
 sidebar_position: 8
 ---
 

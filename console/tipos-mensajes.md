@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Tipos de Mensajes'
+id : tipos-mensajes
 sidebar_position: 3
 ---
 

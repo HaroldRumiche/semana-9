@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Editar HTML en vivo'
+id : editar-html-vivo
 sidebar_position: 3
 ---
 

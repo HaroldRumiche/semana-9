@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Grabar Sesión'
+id : grabar-sesion
 sidebar_position: 2
 ---
 

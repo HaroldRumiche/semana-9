@@ -1,48 +1,80 @@
 ---
 sidebar_position: 1
-slug : /
+slug: /
 ---
 
-# Tutorial Intro
+import DocsCard from '/src/components/global/DocsCard';
+import DocsCards from '/src/components/global/DocsCards';
 
-Let's discover **Docusaurus in less than 5 minutes**.
+# Introducción a las Herramientas de Desarrollo Web
 
-## Getting Started
+Bienvenido a esta guía completa sobre las herramientas esenciales para el desarrollo web moderno. Este manual está diseñado para ayudarte a dominar las herramientas que potenciarán tu productividad y la calidad de tus proyectos web.
 
-Get started by **creating a new site**.
+## ¿Para quién es este manual?
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Este recurso está dirigido a:
+- Desarrolladores web principiantes que buscan familiarizarse con herramientas fundamentales
+- Desarrolladores intermedios que desean profundizar sus conocimientos técnicos
+- Profesionales que quieren optimizar su flujo de trabajo con las mejores prácticas actuales
 
-### What you'll need
+## Contenido principal
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+<DocsCards>
+  <DocsCard
+    header="Inspector de Elementos"
+    href="/dom"
+  >
+    <p>Aprende a visualizar, analizar y modificar en tiempo real el código HTML, CSS y estructura DOM de cualquier página web.</p>
+  </DocsCard>
+  
+ <DocsCard  
+    header="Sources"  
+    href="/sources"  
+>  
+    <p>Aprende a utilizar el inspector de elementos para explorar y comprender los "sources" de tus páginas web.</p>  
+</DocsCard>  
+  
+  <DocsCard
+    header="DevTools"
+    href="/security"
+  >
+    <p>Domina el conjunto completo de herramientas de desarrollo incluidas en los navegadores modernos.</p>
+  </DocsCard>
+  
+  <DocsCard
+    header="Lighthouse"
+    href="/lighthouse"
+  >
+    <p>Aprende a auditar y mejorar el rendimiento, accesibilidad, SEO y más aspectos de tus sitios web.</p>
+  </DocsCard>
+</DocsCards>
 
-## Generate a new site
+## Beneficios de dominar estas herramientas
 
-Generate a new Docusaurus site using the **classic template**.
+Dominar las herramientas presentadas en este manual te permitirá:
 
-The classic template will automatically be added to your project after you run the command:
+- **Acelerar tu desarrollo**: Identificar y resolver problemas más rápidamente
+- **Mejorar la calidad**: Crear sitios web más rápidos, accesibles y optimizados
+- **Optimizar el flujo de trabajo**: Utilizar atajos y técnicas que aumentan la productividad
+- **Depurar con eficiencia**: Localizar y corregir errores con métodos sistemáticos
+- **Documentar profesionalmente**: Crear documentación técnica clara y mantenible
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+## Cómo usar este manual
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Para aprovechar al máximo este recurso:
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+1. Comienza con las secciones introductorias de cada herramienta
+2. Practica los ejemplos en proyectos reales mientras avanzas
+3. Consulta las secciones de referencia cuando necesites información específica
+4. Revisa periódicamente las técnicas avanzadas a medida que mejoras tus habilidades
 
-## Start your site
+## Requisitos previos
 
-Run the development server:
+Para seguir este manual necesitarás:
 
-```bash
-cd my-website
-npm run start
-```
+- Conocimientos básicos de HTML, CSS y JavaScript
+- Un navegador web moderno (recomendamos Chrome o Firefox)
+- Editor de código de tu preferencia
+- Node.js versión 18.0 o superior para algunas funcionalidades
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Estamos comprometidos a mantenerte actualizado con las mejores prácticas y herramientas del desarrollo web moderno. ¡Comencemos este viaje de aprendizaje juntos!

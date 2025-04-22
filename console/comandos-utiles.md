@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Comandos Útiles'
+id : comandos-utiles
 sidebar_position: 4
 ---
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Casos Prácticos'
+id : casos-practicos
 sidebar_position: 8
 ---
 

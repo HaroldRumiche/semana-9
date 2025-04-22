@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Cache'
+id : cache
 sidebar_position: 4
 ---
 

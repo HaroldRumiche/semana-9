@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Depurar Estilos'
+id : depurar-estilos
 sidebar_position: 8
 ---
 

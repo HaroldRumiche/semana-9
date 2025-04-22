@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Configuraciones Avanzadas'
+id : configuraciones-avanzadas
 sidebar_position: 8
 ---
 

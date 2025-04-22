@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Source Maps'
+id : source-maps
 sidebar_position: 7
 ---
 

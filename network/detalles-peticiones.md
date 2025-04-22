@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Detalles de Peticiones'
+id : detalles-peticiones
 sidebar_position: 5
 ---
 

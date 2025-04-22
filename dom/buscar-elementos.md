@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Buscar elementos'
+id : buscar-elementos
 sidebar_position: 4
 ---
 

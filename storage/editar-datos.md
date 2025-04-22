@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Editar datos'
+id : editar-datos
 sidebar_position: 7
 ---
 

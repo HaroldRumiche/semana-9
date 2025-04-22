@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Local Storage y Session Storage'
+id : localstorage-sessionstorage
 sidebar_position: 5
 ---
 

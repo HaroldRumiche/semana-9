@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Errores y Excepciones'
+id : errores-excepciones
 sidebar_position: 5
 ---
 

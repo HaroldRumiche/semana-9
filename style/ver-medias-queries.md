@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Media Queries'
+id : ver-medias-queries
 sidebar_position: 7
 ---
 

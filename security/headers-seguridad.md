@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Headers de Seguridad'
+id : headers-seguridad
 sidebar_position: 5
 ---
 

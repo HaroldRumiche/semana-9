@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Análisis de Solicitudes'
+id : analisis-solicitudes
 sidebar_position: 4
 ---
 

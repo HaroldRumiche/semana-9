@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Modificar Estilos'
+id : modificar-estilos
 sidebar_position: 6
 ---
 

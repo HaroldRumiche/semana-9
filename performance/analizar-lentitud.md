@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Analizar Lentitud'
+id : analizar-lentitud
 sidebar_position: 6
 ---
 

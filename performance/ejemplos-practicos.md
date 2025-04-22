@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Ejemplos Prácticos'
+id : ejemplos-practicos
 sidebar_position: 8
 ---
 

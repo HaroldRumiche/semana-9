@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Consejos de depuración'
+id : consejos-depuracion
 sidebar_position: 8
 ---
 

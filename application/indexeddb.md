@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'IndexedDB'
+id : indexeddb
 sidebar_position: 6
 ---
 

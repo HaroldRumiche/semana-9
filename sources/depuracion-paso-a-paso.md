@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Depuración paso a paso'
+id : depuracion-paso-a-paso
 sidebar_position: 4
 ---
 

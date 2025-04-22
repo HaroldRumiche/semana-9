@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Manual de uso del inspeador de Elementos',
   tagline: 'Aprende a usar el inspeador de elementos de Chrome',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon-1.ico',
 
   // Set the production url of your site here
   url: 'https://docu.zrenrique.xyz',
@@ -150,6 +150,16 @@ const config: Config = {
         sidebarPath: './security.ts',
       }
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'lighthouse',
+        path: 'lighthouse',
+        routeBasePath: 'lighthouse',
+        sidebarPath: './lighthouse.ts',
+      }
+    ],
+    
 
 
 
@@ -176,30 +186,31 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/zrempire-social-card.jpg',
     navbar: {
-      title: 'Semana 9',
+      title: 'Manual',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo-1.svg',
       },
       items: [
-        /*{
+        {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'INICIO',
-        },*/
+          
+          
+        },
         //{to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/console', label: 'Console', position: 'left'},
-        {to: '/application', label: 'Application', position: 'left'},
-        {to: '/security', label: 'Security', position: 'left'},
         {to: '/dom', label: 'DOM', position: 'left'},
-        {to: '/network', label: 'Network', position: 'left'},
-        {to: '/performance', label: 'Performance', position: 'left'},
-        {to: '/sources', label: 'Sources', position: 'left'},
-        {to: '/storage', label: 'Storage', position: 'left'},
         {to: '/style', label: 'Style', position: 'left'},
+        {to: '/console', label: 'Console', position: 'left'},
+        {to: '/network', label: 'Network', position: 'left'},
+        {to: '/sources', label: 'Sources', position: 'left'},
+        {to: '/application', label: 'Application', position: 'left'},
+        {to: '/storage', label: 'Storage', position: 'left'},
+        {to: '/performance', label: 'Performance', position: 'left'},
+        {to: '/security', label: 'Security', position: 'left'},
+        {to: '/lighthouse', label: 'Lighthouse', position: 'left'},
         /*{
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',

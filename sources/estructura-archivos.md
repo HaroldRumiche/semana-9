@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Estructura de archivos'
+id : estructura-archivos
 sidebar_position: 2
 ---
 
