@@ -194,12 +194,12 @@ const config: Config = {
         src: 'img/logo-1.svg',
       },
       items: [
-        {
+        /*{
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
-          
-          
-        },
+          position: 'left',
+          label: 'INICIO',
+        },*/
         //{to: '/blog', label: 'Blog', position: 'left'},
         {to: '/dom', label: 'DOM', position: 'left'},
         {to: '/style', label: 'Style', position: 'left'},
