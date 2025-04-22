@@ -132,6 +132,15 @@ const config: Config = {
         sidebarPath: './sources.ts',
       }
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'application',
+        path: 'application',
+        routeBasePath: 'application',
+        sidebarPath: './application.ts',
+      }
+    ],
 
 
 
@@ -174,6 +183,7 @@ const config: Config = {
         },*/
         //{to: '/blog', label: 'Blog', position: 'left'},
         {to: '/console', label: 'Console', position: 'left'},
+        {to: '/application', label: 'Application', position: 'left'},
         {to: '/dom', label: 'DOM', position: 'left'},
         {to: '/network', label: 'Network', position: 'left'},
         {to: '/performance', label: 'Performance', position: 'left'},
