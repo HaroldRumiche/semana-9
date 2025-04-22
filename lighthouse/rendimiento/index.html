@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-lighthouse docs-version-current docs-doc-page docs-doc-id-rendimiento" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Auditoría de Rendimiento en Lighthouse | Manual de uso del inspeador de Elementos</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docu.zrenrique.xyz/img/zrempire-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docu.zrenrique.xyz/img/zrempire-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docu.zrenrique.xyz/lighthouse/rendimiento"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-lighthouse-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-lighthouse-current"><meta data-rh="true" property="og:title" content="Auditoría de Rendimiento en Lighthouse | Manual de uso del inspeador de Elementos"><meta data-rh="true" name="description" content="La categoría de rendimiento evalúa qué tan rápido se carga y responde tu sitio web para los usuarios. Un buen rendimiento es fundamental para la experiencia del usuario y tiene un impacto directo en las tasas de conversión y el posicionamiento SEO."><meta data-rh="true" property="og:description" content="La categoría de rendimiento evalúa qué tan rápido se carga y responde tu sitio web para los usuarios. Un buen rendimiento es fundamental para la experiencia del usuario y tiene un impacto directo en las tasas de conversión y el posicionamiento SEO."><link data-rh="true" rel="icon" href="/img/favicon-1.ico"><link data-rh="true" rel="canonical" href="https://docu.zrenrique.xyz/lighthouse/rendimiento"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/lighthouse/rendimiento" hreflang="es"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/lighthouse/rendimiento" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.80cfdbc0.css">
+<script src="/assets/js/runtime~main.3db2519f.js" defer="defer"></script>
+<script src="/assets/js/main.62d1b8fa.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo-1.svg"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo-1.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo-1.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Manual</b></a><a class="navbar__item navbar__link" href="/dom">DOM</a><a class="navbar__item navbar__link" href="/style">Style</a><a class="navbar__item navbar__link" href="/console">Console</a><a class="navbar__item navbar__link" href="/network">Network</a><a class="navbar__item navbar__link" href="/sources">Sources</a><a class="navbar__item navbar__link" href="/application">Application</a><a class="navbar__item navbar__link" href="/storage">Storage</a><a class="navbar__item navbar__link" href="/performance">Performance</a><a class="navbar__item navbar__link" href="/security">Security</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/lighthouse">Lighthouse</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-label="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Barra lateral de Documentos" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--active">🚦 Lighthouse</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/">📘 Introducción</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/como-generar-auditoria">🧪 Cómo generar auditoría</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/lighthouse/rendimiento">⚡ Rendimiento</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/accesibilidad">♿ Accesibilidad</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/buenas-practicas">✅ Buenas Prácticas</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/seo">🔍 SEO</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/pwa">📱 PWA</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/interpretacion-resultados">📊 Interpretación de resultados</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Rastro de navegación"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">🚦 Lighthouse</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">⚡ Rendimiento</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><header><h1>Auditoría de Rendimiento en Lighthouse</h1></header>
+<p>La categoría de rendimiento evalúa qué tan rápido se carga y responde tu sitio web para los usuarios. Un buen rendimiento es fundamental para la experiencia del usuario y tiene un impacto directo en las tasas de conversión y el posicionamiento SEO.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="métricas-principales">Métricas principales<a href="#métricas-principales" class="hash-link" aria-label="Enlace directo al Métricas principales" title="Enlace directo al Métricas principales">​</a></h2>
+<docs-cards><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/rendimiento#fcp"><div class="Card-container"><header class="Card-header">First Contentful Paint (FCP)</header><div class="Card-content"><p>Mide el tiempo que tarda en renderizarse el primer contenido visible en la pantalla.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/rendimiento#lcp"><div class="Card-container"><header class="Card-header">Largest Contentful Paint (LCP)</header><div class="Card-content"><p>Registra cuándo se renderiza el elemento de contenido más grande visible en la ventana.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/rendimiento#tbt"><div class="Card-container"><header class="Card-header">Total Blocking Time (TBT)</header><div class="Card-content"><p>Suma el tiempo en que el hilo principal está bloqueado, impidiendo la interactividad.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/rendimiento#cls"><div class="Card-container"><header class="Card-header">Cumulative Layout Shift (CLS)</header><div class="Card-content"><p>Mide la estabilidad visual y cuantifica los cambios inesperados en el layout.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/rendimiento#speed-index"><div class="Card-container"><header class="Card-header">Speed Index</header><div class="Card-content"><p>Indica qué tan rápido se muestra el contenido visualmente durante la carga de la página.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/rendimiento#tti"><div class="Card-container"><header class="Card-header">Time to Interactive (TTI)</header><div class="Card-content"><p>Mide el tiempo hasta que la página se vuelve completamente interactiva.</p></div></div></a></docs-card></docs-cards>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fcp">First Contentful Paint (FCP)<a href="#fcp" class="hash-link" aria-label="Enlace directo al First Contentful Paint (FCP)" title="Enlace directo al First Contentful Paint (FCP)">​</a></h2>
+<p>First Contentful Paint mide el tiempo desde que comienza a cargarse la página hasta que cualquier parte del contenido aparece en la pantalla.</p>
+<p><strong>Objetivos recomendados:</strong></p>
+<ul>
+<li>Bueno: 0-1.8 segundos</li>
+<li>Necesita mejorar: 1.8-3.0 segundos</li>
+<li>Pobre: Más de 3.0 segundos</li>
+</ul>
+<p><strong>Cómo mejorar FCP:</strong></p>
+<ul>
+<li>Eliminar recursos que bloqueen el renderizado</li>
+<li>Minificar CSS</li>
+<li>Eliminar CSS no utilizado</li>
+<li>Precargar recursos críticos</li>
+<li>Reducir el tiempo de respuesta del servidor</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lcp">Largest Contentful Paint (LCP)<a href="#lcp" class="hash-link" aria-label="Enlace directo al Largest Contentful Paint (LCP)" title="Enlace directo al Largest Contentful Paint (LCP)">​</a></h2>
+<p>Largest Contentful Paint mide el tiempo que tarda en renderizarse el elemento de contenido más grande visible en la ventana.</p>
+<p><strong>Objetivos recomendados:</strong></p>
+<ul>
+<li>Bueno: 0-2.5 segundos</li>
+<li>Necesita mejorar: 2.5-4.0 segundos</li>
+<li>Pobre: Más de 4.0 segundos</li>
+</ul>
+<p><strong>Cómo mejorar LCP:</strong></p>
+<ul>
+<li>Optimizar imágenes y media</li>
+<li>Precargar recursos importantes</li>
+<li>Comprimir archivos de texto</li>
+<li>Entregar HTML crítico mediante streaming</li>
+<li>Implementar caché del lado del servidor</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tbt">Total Blocking Time (TBT)<a href="#tbt" class="hash-link" aria-label="Enlace directo al Total Blocking Time (TBT)" title="Enlace directo al Total Blocking Time (TBT)">​</a></h2>
+<p>Total Blocking Time suma la duración de todas las tareas largas (que superan los 50 ms) en el hilo principal entre FCP y TTI.</p>
+<p><strong>Objetivos recomendados:</strong></p>
+<ul>
+<li>Bueno: 0-200 milisegundos</li>
+<li>Necesita mejorar: 200-600 milisegundos</li>
+<li>Pobre: Más de 600 milisegundos</li>
+</ul>
+<p><strong>Cómo mejorar TBT:</strong></p>
+<ul>
+<li>Minimizar el JavaScript no utilizado</li>
+<li>Dividir código en paquetes más pequeños</li>
+<li>Optimizar el JavaScript de terceros</li>
+<li>Reducir el trabajo en el hilo principal</li>
+<li>Optimizar el uso de polyfills</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cls">Cumulative Layout Shift (CLS)<a href="#cls" class="hash-link" aria-label="Enlace directo al Cumulative Layout Shift (CLS)" title="Enlace directo al Cumulative Layout Shift (CLS)">​</a></h2>
+<p>Cumulative Layout Shift cuantifica la cantidad de cambios inesperados en el layout de una página.</p>
+<p><strong>Objetivos recomendados:</strong></p>
+<ul>
+<li>Bueno: 0-0.1</li>
+<li>Necesita mejorar: 0.1-0.25</li>
+<li>Pobre: Más de 0.25</li>
+</ul>
+<p><strong>Cómo mejorar CLS:</strong></p>
+<ul>
+<li>Especificar dimensiones para imágenes y videos</li>
+<li>Reservar espacio para anuncios</li>
+<li>No insertar contenido dinámico sobre contenido existente</li>
+<li>Preferir transiciones de animación que no afecten el layout</li>
+<li>Evitar fuentes web que causen FOIT/FOUT</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="speed-index">Speed Index<a href="#speed-index" class="hash-link" aria-label="Enlace directo al Speed Index" title="Enlace directo al Speed Index">​</a></h2>
+<p>Speed Index mide qué tan rápido se muestra el contenido visualmente durante la carga de la página.</p>
+<p><strong>Objetivos recomendados:</strong></p>
+<ul>
+<li>Bueno: 0-3.4 segundos</li>
+<li>Necesita mejorar: 3.4-5.8 segundos</li>
+<li>Pobre: Más de 5.8 segundos</li>
+</ul>
+<p><strong>Cómo mejorar Speed Index:</strong></p>
+<ul>
+<li>Optimizar el orden de carga de recursos críticos</li>
+<li>Reducir complejidad del DOM</li>
+<li>Comprimir imágenes y recursos</li>
+<li>Implementar técnicas de carga progresiva</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tti">Time to Interactive (TTI)<a href="#tti" class="hash-link" aria-label="Enlace directo al Time to Interactive (TTI)" title="Enlace directo al Time to Interactive (TTI)">​</a></h2>
+<p>Time to Interactive mide el tiempo que tarda una página en volverse completamente interactiva.</p>
+<p><strong>Objetivos recomendados:</strong></p>
+<ul>
+<li>Bueno: 0-3.8 segundos</li>
+<li>Necesita mejorar: 3.8-7.3 segundos</li>
+<li>Pobre: Más de 7.3 segundos</li>
+</ul>
+<p><strong>Cómo mejorar TTI:</strong></p>
+<ul>
+<li>Minimizar JavaScript principal</li>
+<li>Eliminar JavaScript no utilizado</li>
+<li>Reducir el uso de polyfills</li>
+<li>Adoptar code splitting</li>
+<li>Eliminar bibliotecas innecesarias</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="estrategias-generales-de-optimización">Estrategias generales de optimización<a href="#estrategias-generales-de-optimización" class="hash-link" aria-label="Enlace directo al Estrategias generales de optimización" title="Enlace directo al Estrategias generales de optimización">​</a></h2>
+<ul>
+<li>
+<p><strong>Optimización de imágenes</strong>:</p>
+<ul>
+<li>Utilizar formatos modernos (WebP, AVIF)</li>
+<li>Implementar carga diferida (lazy loading)</li>
+<li>Servir imágenes responsive</li>
+</ul>
+</li>
+<li>
+<p><strong>Optimización de JavaScript</strong>:</p>
+<ul>
+<li>Diferir código no crítico</li>
+<li>Minificar y comprimir</li>
+<li>Implementar code splitting</li>
+<li>Utilizar Web Workers para tareas pesadas</li>
+</ul>
+</li>
+<li>
+<p><strong>Optimización de CSS</strong>:</p>
+<ul>
+<li>Utilizar Critical CSS</li>
+<li>Minificar y comprimir</li>
+<li>Eliminar CSS no utilizado</li>
+<li>Reducir el uso de CSS bloqueante</li>
+</ul>
+</li>
+<li>
+<p><strong>Optimización del servidor</strong>:</p>
+<ul>
+<li>Implementar CDN</li>
+<li>Utilizar caché en el navegador</li>
+<li>Optimizar TTFB (Time to First Byte)</li>
+<li>Comprimir recursos (Gzip, Brotli)</li>
+</ul>
+</li>
+</ul>
+<p>En la siguiente sección, exploraremos la auditoría de accesibilidad y cómo Lighthouse evalúa la usabilidad de tu sitio para todos los usuarios.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/lighthouse/como-generar-auditoria"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">🧪 Cómo generar auditoría</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/lighthouse/accesibilidad"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">♿ Accesibilidad</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#métricas-principales" class="table-of-contents__link toc-highlight">Métricas principales</a></li><li><a href="#fcp" class="table-of-contents__link toc-highlight">First Contentful Paint (FCP)</a></li><li><a href="#lcp" class="table-of-contents__link toc-highlight">Largest Contentful Paint (LCP)</a></li><li><a href="#tbt" class="table-of-contents__link toc-highlight">Total Blocking Time (TBT)</a></li><li><a href="#cls" class="table-of-contents__link toc-highlight">Cumulative Layout Shift (CLS)</a></li><li><a href="#speed-index" class="table-of-contents__link toc-highlight">Speed Index</a></li><li><a href="#tti" class="table-of-contents__link toc-highlight">Time to Interactive (TTI)</a></li><li><a href="#estrategias-generales-de-optimización" class="table-of-contents__link toc-highlight">Estrategias generales de optimización</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title"></div><ul class="footer__items clean-list"></ul></div></div></div></footer></div>
+</body>
+</html>

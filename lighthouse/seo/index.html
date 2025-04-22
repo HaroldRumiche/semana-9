@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-lighthouse docs-version-current docs-doc-page docs-doc-id-seo" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Auditoría de SEO en Lighthouse | Manual de uso del inspeador de Elementos</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docu.zrenrique.xyz/img/zrempire-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docu.zrenrique.xyz/img/zrempire-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docu.zrenrique.xyz/lighthouse/seo"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-lighthouse-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-lighthouse-current"><meta data-rh="true" property="og:title" content="Auditoría de SEO en Lighthouse | Manual de uso del inspeador de Elementos"><meta data-rh="true" name="description" content="La categoría SEO (Search Engine Optimization) evalúa si tu sitio web está optimizado para ser rastreado e indexado correctamente por los motores de búsqueda. Mejorar estos aspectos puede aumentar la visibilidad de tu sitio en los resultados de búsqueda, atraer más tráfico orgánico y mejorar la experiencia de usuario."><meta data-rh="true" property="og:description" content="La categoría SEO (Search Engine Optimization) evalúa si tu sitio web está optimizado para ser rastreado e indexado correctamente por los motores de búsqueda. Mejorar estos aspectos puede aumentar la visibilidad de tu sitio en los resultados de búsqueda, atraer más tráfico orgánico y mejorar la experiencia de usuario."><link data-rh="true" rel="icon" href="/img/favicon-1.ico"><link data-rh="true" rel="canonical" href="https://docu.zrenrique.xyz/lighthouse/seo"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/lighthouse/seo" hreflang="es"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/lighthouse/seo" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.80cfdbc0.css">
+<script src="/assets/js/runtime~main.3db2519f.js" defer="defer"></script>
+<script src="/assets/js/main.62d1b8fa.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo-1.svg"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo-1.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo-1.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Manual</b></a><a class="navbar__item navbar__link" href="/dom">DOM</a><a class="navbar__item navbar__link" href="/style">Style</a><a class="navbar__item navbar__link" href="/console">Console</a><a class="navbar__item navbar__link" href="/network">Network</a><a class="navbar__item navbar__link" href="/sources">Sources</a><a class="navbar__item navbar__link" href="/application">Application</a><a class="navbar__item navbar__link" href="/storage">Storage</a><a class="navbar__item navbar__link" href="/performance">Performance</a><a class="navbar__item navbar__link" href="/security">Security</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/lighthouse">Lighthouse</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-label="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Barra lateral de Documentos" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--active">🚦 Lighthouse</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/">📘 Introducción</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/como-generar-auditoria">🧪 Cómo generar auditoría</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/rendimiento">⚡ Rendimiento</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/accesibilidad">♿ Accesibilidad</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/buenas-practicas">✅ Buenas Prácticas</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/lighthouse/seo">🔍 SEO</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/pwa">📱 PWA</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/interpretacion-resultados">📊 Interpretación de resultados</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Rastro de navegación"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">🚦 Lighthouse</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">🔍 SEO</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><header><h1>Auditoría de SEO en Lighthouse</h1></header>
+<p>La categoría SEO (Search Engine Optimization) evalúa si tu sitio web está optimizado para ser rastreado e indexado correctamente por los motores de búsqueda. Mejorar estos aspectos puede aumentar la visibilidad de tu sitio en los resultados de búsqueda, atraer más tráfico orgánico y mejorar la experiencia de usuario.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="áreas-de-evaluación">Áreas de evaluación<a href="#áreas-de-evaluación" class="hash-link" aria-label="Enlace directo al Áreas de evaluación" title="Enlace directo al Áreas de evaluación">​</a></h2>
+<docs-cards><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/seo#rastreabilidad"><div class="Card-container"><header class="Card-header">Rastreabilidad</header><div class="Card-content"><p>Verifica que tu sitio pueda ser descubierto y recorrido por los motores de búsqueda.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/seo#contenido"><div class="Card-container"><header class="Card-header">Contenido</header><div class="Card-content"><p>Evalúa si el contenido está estructurado para favorecer el posicionamiento en buscadores.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/seo#movil"><div class="Card-container"><header class="Card-header">Móvil</header><div class="Card-content"><p>Comprueba la adaptabilidad de tu sitio para dispositivos móviles.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/seo#estructurados"><div class="Card-container"><header class="Card-header">Elementos estructurados</header><div class="Card-content"><p>Analiza elementos técnicos que afectan la indexación y presentación en resultados de búsqueda.</p></div></div></a></docs-card></docs-cards>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="rastreabilidad">Rastreabilidad<a href="#rastreabilidad" class="hash-link" aria-label="Enlace directo al Rastreabilidad" title="Enlace directo al Rastreabilidad">​</a></h2>
+<p>Lighthouse evalúa si los robots de los motores de búsqueda pueden acceder y rastrear tu sitio web eficientemente.</p>
+<p><strong>Aspectos evaluados:</strong></p>
+<ul>
+<li><strong>robots.txt</strong>: Verifica que el archivo robots.txt sea válido y no bloquee rastreo</li>
+<li><strong>Enlaces internos</strong>: Comprueba que los enlaces sean rastreables</li>
+<li><strong>HTTP status</strong>: Evalúa si la página devuelve códigos de estado HTTP apropiados</li>
+<li><strong>Bloqueos de indexación</strong>: Detecta meta tags que bloquean la indexación</li>
+</ul>
+<p><strong>Recomendaciones:</strong></p>
+<ul>
+<li>Mantener un archivo robots.txt correctamente configurado</li>
+<li>Evitar el uso de <code>noindex</code> en páginas que deberían ser indexadas</li>
+<li>Asegurar que la página devuelva código 200 OK</li>
+<li>No bloquear recursos JS y CSS para rastreadores</li>
+<li>Implementar un mapa del sitio XML y declararlo en robots.txt</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="contenido">Contenido<a href="#contenido" class="hash-link" aria-label="Enlace directo al Contenido" title="Enlace directo al Contenido">​</a></h2>
+<p>Esta sección evalúa si el contenido está estructurado y descrito correctamente para los motores de búsqueda.</p>
+<p><strong>Aspectos evaluados:</strong></p>
+<ul>
+<li><strong>Título de la página</strong>: Verifica que exista un título descriptivo y único</li>
+<li><strong>Meta-descripción</strong>: Comprueba la presencia de meta-descripción</li>
+<li><strong>Etiquetas de encabezado</strong>: Evalúa la estructura de encabezados</li>
+<li><strong>Enlaces descriptivos</strong>: Analiza si los textos de enlace son descriptivos</li>
+<li><strong>hreflang</strong>: Verifica el uso correcto para sitios multilingües</li>
+</ul>
+<p><strong>Recomendaciones:</strong></p>
+<ul>
+<li>Crear títulos únicos de 50-60 caracteres</li>
+<li>Escribir meta-descripciones de 120-158 caracteres</li>
+<li>Estructurar contenido con jerarquía lógica de encabezados (h1-h6)</li>
+<li>Usar textos descriptivos en enlaces (evitar &quot;haz clic aquí&quot;)</li>
+<li>Implementar hreflang correctamente para contenido en múltiples idiomas</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="movil">Móvil<a href="#movil" class="hash-link" aria-label="Enlace directo al Móvil" title="Enlace directo al Móvil">​</a></h2>
+<p>Lighthouse evalúa si tu sitio está optimizado para dispositivos móviles, un factor crucial para el SEO moderno.</p>
+<p><strong>Aspectos evaluados:</strong></p>
+<ul>
+<li><strong>Viewport</strong>: Verifica configuración adecuada del viewport</li>
+<li><strong>Tamaño de contenido</strong>: Comprueba que el contenido se ajuste al viewport</li>
+<li><strong>Legibilidad</strong>: Evalúa si el tamaño de texto es adecuado</li>
+<li><strong>Táctil</strong>: Analiza espaciado entre elementos táctiles</li>
+</ul>
+<p><strong>Recomendaciones:</strong></p>
+<ul>
+<li>Configurar correctamente la meta etiqueta viewport</li>
+<li>Diseñar con enfoque &quot;mobile-first&quot;</li>
+<li>Usar tamaños de fuente legibles (mínimo 16px)</li>
+<li>Asegurar espaciado adecuado entre elementos táctiles (mínimo 8mm)</li>
+<li>Implementar diseño responsive</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="estructurados">Elementos estructurados<a href="#estructurados" class="hash-link" aria-label="Enlace directo al Elementos estructurados" title="Enlace directo al Elementos estructurados">​</a></h2>
+<p>Esta área evalúa características técnicas que mejoran cómo los motores de búsqueda entienden e indexan tu contenido.</p>
+<p><strong>Aspectos evaluados:</strong></p>
+<ul>
+<li><strong>Datos estructurados</strong>: Verifica la implementación de Schema.org</li>
+<li><strong>Enlaces canónicos</strong>: Comprueba el uso correcto de URLs canónicas</li>
+<li><strong>HTTP/HTTPS</strong>: Evalúa redirecciones y seguridad</li>
+<li><strong>Plug-ins</strong>: Detecta el uso de contenido que requiere plug-ins</li>
+</ul>
+<p><strong>Recomendaciones:</strong></p>
+<ul>
+<li>Implementar datos estructurados (Schema.org) para rich snippets</li>
+<li>Configurar correctamente URLs canónicas para evitar contenido duplicado</li>
+<li>Asegurar redirecciones adecuadas de HTTP a HTTPS</li>
+<li>Evitar tecnologías que requieran plugins como Flash</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="auditando-más-allá-de-lighthouse">Auditando más allá de Lighthouse<a href="#auditando-más-allá-de-lighthouse" class="hash-link" aria-label="Enlace directo al Auditando más allá de Lighthouse" title="Enlace directo al Auditando más allá de Lighthouse">​</a></h2>
+<p>Aunque Lighthouse proporciona una excelente base para el SEO técnico, existen aspectos que no puede evaluar automáticamente:</p>
+<ul>
+<li><strong>Calidad del contenido</strong>: Relevancia, originalidad y profundidad</li>
+<li><strong>Experiencia de usuario</strong>: Comportamiento real de los usuarios en el sitio</li>
+<li><strong>Autoridad del dominio</strong>: Perfil de enlaces externos</li>
+<li><strong>Factores locales</strong>: Optimización para búsquedas locales</li>
+<li><strong>Intención de búsqueda</strong>: Alineación con lo que buscan los usuarios</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="herramientas-complementarias">Herramientas complementarias<a href="#herramientas-complementarias" class="hash-link" aria-label="Enlace directo al Herramientas complementarias" title="Enlace directo al Herramientas complementarias">​</a></h2>
+<p>Para un análisis SEO completo, considera complementar Lighthouse con:</p>
+<ul>
+<li>Google Search Console</li>
+<li>Bing Webmaster Tools</li>
+<li>SEMrush o Ahrefs</li>
+<li>Google Analytics</li>
+<li>PageSpeed Insights</li>
+<li>Mobile-Friendly Test</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="impacto-en-el-posicionamiento">Impacto en el posicionamiento<a href="#impacto-en-el-posicionamiento" class="hash-link" aria-label="Enlace directo al Impacto en el posicionamiento" title="Enlace directo al Impacto en el posicionamiento">​</a></h2>
+<p>Mejorar las puntuaciones de SEO en Lighthouse puede contribuir positivamente a:</p>
+<ol>
+<li><strong>Mayor visibilidad</strong> en resultados de búsqueda</li>
+<li><strong>Mejor experiencia de usuario</strong>, lo que reduce tasas de rebote</li>
+<li><strong>Incremento del tráfico orgánico</strong></li>
+<li><strong>Mayor accesibilidad</strong> para usuarios con discapacidades</li>
+<li><strong>Mejor rendimiento</strong> en dispositivos móviles</li>
+</ol>
+<p>Recuerda que el SEO es un proceso continuo que va más allá de solucionar los problemas técnicos identificados por Lighthouse. Combina estos resultados con estrategias de contenido y análisis del comportamiento de usuarios para maximizar tu posicionamiento en buscadores.</p>
+<p>En la siguiente sección, exploraremos la auditoría de Aplicaciones Web Progresivas (PWA) y cómo Lighthouse evalúa la capacidad de tu sitio para funcionar como una aplicación.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/lighthouse/buenas-practicas"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">✅ Buenas Prácticas</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/lighthouse/pwa"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">📱 PWA</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#áreas-de-evaluación" class="table-of-contents__link toc-highlight">Áreas de evaluación</a></li><li><a href="#rastreabilidad" class="table-of-contents__link toc-highlight">Rastreabilidad</a></li><li><a href="#contenido" class="table-of-contents__link toc-highlight">Contenido</a></li><li><a href="#movil" class="table-of-contents__link toc-highlight">Móvil</a></li><li><a href="#estructurados" class="table-of-contents__link toc-highlight">Elementos estructurados</a></li><li><a href="#auditando-más-allá-de-lighthouse" class="table-of-contents__link toc-highlight">Auditando más allá de Lighthouse</a></li><li><a href="#herramientas-complementarias" class="table-of-contents__link toc-highlight">Herramientas complementarias</a></li><li><a href="#impacto-en-el-posicionamiento" class="table-of-contents__link toc-highlight">Impacto en el posicionamiento</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title"></div><ul class="footer__items clean-list"></ul></div></div></div></footer></div>
+</body>
+</html>

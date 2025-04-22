@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-lighthouse docs-version-current docs-doc-page docs-doc-id-interpretacion-resultados" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Interpretación de Resultados de Lighthouse | Manual de uso del inspeador de Elementos</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docu.zrenrique.xyz/img/zrempire-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docu.zrenrique.xyz/img/zrempire-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docu.zrenrique.xyz/lighthouse/interpretacion-resultados"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-lighthouse-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-lighthouse-current"><meta data-rh="true" property="og:title" content="Interpretación de Resultados de Lighthouse | Manual de uso del inspeador de Elementos"><meta data-rh="true" name="description" content="Una vez que Lighthouse ha generado un informe de auditoría para tu sitio web, es crucial saber cómo interpretar los resultados y establecer prioridades para las mejoras. En esta sección, aprenderás a analizar el informe, comprender las puntuaciones y métricas, y desarrollar un plan de acción eficaz."><meta data-rh="true" property="og:description" content="Una vez que Lighthouse ha generado un informe de auditoría para tu sitio web, es crucial saber cómo interpretar los resultados y establecer prioridades para las mejoras. En esta sección, aprenderás a analizar el informe, comprender las puntuaciones y métricas, y desarrollar un plan de acción eficaz."><link data-rh="true" rel="icon" href="/img/favicon-1.ico"><link data-rh="true" rel="canonical" href="https://docu.zrenrique.xyz/lighthouse/interpretacion-resultados"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/lighthouse/interpretacion-resultados" hreflang="es"><link data-rh="true" rel="alternate" href="https://docu.zrenrique.xyz/lighthouse/interpretacion-resultados" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.80cfdbc0.css">
+<script src="/assets/js/runtime~main.3db2519f.js" defer="defer"></script>
+<script src="/assets/js/main.62d1b8fa.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo-1.svg"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo-1.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo-1.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Manual</b></a><a class="navbar__item navbar__link" href="/dom">DOM</a><a class="navbar__item navbar__link" href="/style">Style</a><a class="navbar__item navbar__link" href="/console">Console</a><a class="navbar__item navbar__link" href="/network">Network</a><a class="navbar__item navbar__link" href="/sources">Sources</a><a class="navbar__item navbar__link" href="/application">Application</a><a class="navbar__item navbar__link" href="/storage">Storage</a><a class="navbar__item navbar__link" href="/performance">Performance</a><a class="navbar__item navbar__link" href="/security">Security</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/lighthouse">Lighthouse</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-label="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Barra lateral de Documentos" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--active">🚦 Lighthouse</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/">📘 Introducción</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/como-generar-auditoria">🧪 Cómo generar auditoría</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/rendimiento">⚡ Rendimiento</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/accesibilidad">♿ Accesibilidad</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/buenas-practicas">✅ Buenas Prácticas</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/seo">🔍 SEO</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/lighthouse/pwa">📱 PWA</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/lighthouse/interpretacion-resultados">📊 Interpretación de resultados</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Rastro de navegación"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">🚦 Lighthouse</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">📊 Interpretación de resultados</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><header><h1>Interpretación de Resultados de Lighthouse</h1></header>
+<p>Una vez que Lighthouse ha generado un informe de auditoría para tu sitio web, es crucial saber cómo interpretar los resultados y establecer prioridades para las mejoras. En esta sección, aprenderás a analizar el informe, comprender las puntuaciones y métricas, y desarrollar un plan de acción eficaz.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="estructura-del-informe">Estructura del informe<a href="#estructura-del-informe" class="hash-link" aria-label="Enlace directo al Estructura del informe" title="Enlace directo al Estructura del informe">​</a></h2>
+<docs-cards><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/interpretacion-resultados#puntuacion-global"><div class="Card-container"><header class="Card-header">Puntuación global</header><div class="Card-content"><p>Comprende el significado de la puntuación general y cómo se calcula.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/interpretacion-resultados#puntuaciones-categoria"><div class="Card-container"><header class="Card-header">Puntuaciones por categoría</header><div class="Card-content"><p>Analiza en detalle las puntuaciones en cada una de las cinco categorías principales.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/interpretacion-resultados#auditorias-individuales"><div class="Card-container"><header class="Card-header">Auditorías individuales</header><div class="Card-content"><p>Examina los resultados de pruebas específicas y sus recomendaciones.</p></div></div></a></docs-card><docs-card class="Card-without-image"><a class="card_HCHm docs-card" href="/lighthouse/interpretacion-resultados#metricas-clave"><div class="Card-container"><header class="Card-header">Métricas clave</header><div class="Card-content"><p>Enfócate en las métricas principales que impactan directamente la experiencia del usuario.</p></div></div></a></docs-card></docs-cards>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="puntuacion-global">Puntuación global<a href="#puntuacion-global" class="hash-link" aria-label="Enlace directo al Puntuación global" title="Enlace directo al Puntuación global">​</a></h2>
+<p>La puntuación global de Lighthouse representa un promedio ponderado de las diferentes categorías y se muestra como un valor de 0 a 100 en un medidor circular.</p>
+<p><strong>Interpretación de la puntuación:</strong></p>
+<ul>
+<li><strong>0-49 (Rojo)</strong>: Rendimiento pobre, necesita mejoras significativas</li>
+<li><strong>50-89 (Naranja)</strong>: Rendimiento moderado, hay margen para optimizaciones</li>
+<li><strong>90-100 (Verde)</strong>: Rendimiento excelente, cumple con las mejores prácticas</li>
+</ul>
+<p><strong>Consideraciones importantes:</strong></p>
+<ul>
+<li>La puntuación global puede ocultar problemas específicos importantes</li>
+<li>Una puntuación alta no garantiza una experiencia perfecta para todos los usuarios</li>
+<li>Las puntuaciones pueden variar entre ejecuciones debido a factores externos</li>
+<li>Es más útil enfocarse en las categorías individuales y sus métricas</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="puntuaciones-categoria">Puntuaciones por categoría<a href="#puntuaciones-categoria" class="hash-link" aria-label="Enlace directo al Puntuaciones por categoría" title="Enlace directo al Puntuaciones por categoría">​</a></h2>
+<p>Cada categoría recibe una puntuación independiente y tiene un peso diferente en el resultado global.</p>
+<p><strong>Rendimiento (Peso significativo):</strong></p>
+<ul>
+<li>Relacionado directamente con la velocidad percibida</li>
+<li>Incluye métricas como LCP, FID, CLS, TTI</li>
+<li>Variabilidad alta entre pruebas</li>
+</ul>
+<p><strong>Accesibilidad:</strong></p>
+<ul>
+<li>Basada en pruebas automatizadas (aproximadamente 30% de WCAG)</li>
+<li>Puntuación = porcentaje de pruebas pasadas</li>
+</ul>
+<p><strong>Buenas Prácticas:</strong></p>
+<ul>
+<li>Cada prueba tiene el mismo peso</li>
+<li>Puntuación = porcentaje de pruebas pasadas</li>
+</ul>
+<p><strong>SEO:</strong></p>
+<ul>
+<li>Aspectos técnicos de optimización para buscadores</li>
+<li>No evalúa calidad de contenido, autoridad o backlinks</li>
+</ul>
+<p><strong>PWA:</strong></p>
+<ul>
+<li>Conjunto específico de requisitos para aplicaciones web progresivas</li>
+<li>Puntuación binaria (pasa/no pasa) para cada prueba</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="auditorias-individuales">Auditorías individuales<a href="#auditorias-individuales" class="hash-link" aria-label="Enlace directo al Auditorías individuales" title="Enlace directo al Auditorías individuales">​</a></h2>
+<p>Cada auditoría proporciona información específica sobre un aspecto del sitio web y suele incluir:</p>
+<p><strong>Componentes de la auditoría:</strong></p>
+<ul>
+<li><strong>Título</strong>: Descripción breve del test</li>
+<li><strong>Descripción</strong>: Explicación detallada del problema</li>
+<li><strong>Estado</strong>: Pasado, fallido o informativo</li>
+<li><strong>Impacto</strong>: Estimación del efecto en la puntuación</li>
+<li><strong>Recursos afectados</strong>: Lista de archivos o elementos problemáticos</li>
+<li><strong>Recomendaciones</strong>: Sugerencias para resolver el problema</li>
+<li><strong>Documentación</strong>: Enlaces a recursos de ayuda</li>
+</ul>
+<p><strong>Tipos de resultados:</strong></p>
+<ul>
+<li><strong>Aprobado (Passed)</strong>: Cumple con los criterios</li>
+<li><strong>Fallido (Failed)</strong>: No cumple con los requisitos</li>
+<li><strong>No aplicable (Not applicable)</strong>: No relevante para este sitio</li>
+<li><strong>Manual (Manual)</strong>: Requiere verificación manual</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metricas-clave">Métricas clave<a href="#metricas-clave" class="hash-link" aria-label="Enlace directo al Métricas clave" title="Enlace directo al Métricas clave">​</a></h2>
+<p>Algunas métricas tienen mayor impacto en la experiencia del usuario y deben priorizarse:</p>
+<p><strong>Core Web Vitals:</strong></p>
+<ul>
+<li><strong>Largest Contentful Paint (LCP)</strong>: Tiempo de carga del contenido principal</li>
+<li><strong>First Input Delay (FID)</strong>: Tiempo de respuesta a interacción</li>
+<li><strong>Cumulative Layout Shift (CLS)</strong>: Estabilidad visual</li>
+</ul>
+<p><strong>Otras métricas importantes:</strong></p>
+<ul>
+<li><strong>Time to Interactive (TTI)</strong>: Tiempo hasta que la página es interactiva</li>
+<li><strong>Total Blocking Time (TBT)</strong>: Tiempo en que el hilo principal está bloqueado</li>
+<li><strong>Speed Index</strong>: Velocidad de visualización del contenido</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="estableciendo-prioridades">Estableciendo prioridades<a href="#estableciendo-prioridades" class="hash-link" aria-label="Enlace directo al Estableciendo prioridades" title="Enlace directo al Estableciendo prioridades">​</a></h2>
+<p>Al interpretar los resultados, sigue estos pasos para establecer prioridades eficaces:</p>
+<ol>
+<li>
+<p><strong>Enfócate primero en Core Web Vitals</strong></p>
+<ul>
+<li>LCP, FID/TBT y CLS tienen el mayor impacto en usuarios y SEO</li>
+</ul>
+</li>
+<li>
+<p><strong>Identifica &quot;quick wins&quot;</strong></p>
+<ul>
+<li>Optimizaciones simples con alto impacto:<!-- -->
+<ul>
+<li>Imágenes sin optimizar</li>
+<li>Recursos no comprimidos</li>
+<li>JavaScript no necesario</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Balancear esfuerzo vs. impacto</strong></p>
+<ul>
+<li>Clasificar problemas por:<!-- -->
+<ul>
+<li>Impacto en la puntuación</li>
+<li>Impacto en la experiencia real</li>
+<li>Dificultad de implementación</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Priorizar por audiencia</strong></p>
+<ul>
+<li>Considerar dispositivos y conexiones de usuarios reales</li>
+<li>Enfocarse en problemas que afectan a la mayoría</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ejemplo-de-plan-de-acción-basado-en-resultados">Ejemplo de plan de acción basado en resultados<a href="#ejemplo-de-plan-de-acción-basado-en-resultados" class="hash-link" aria-label="Enlace directo al Ejemplo de plan de acción basado en resultados" title="Enlace directo al Ejemplo de plan de acción basado en resultados">​</a></h2>
+<ol>
+<li>
+<p><strong>Rendimiento (70/100)</strong></p>
+<ul>
+<li>Optimizar imágenes principales (LCP)</li>
+<li>Diferir JavaScript no crítico</li>
+<li>Implementar cache eficiente</li>
+</ul>
+</li>
+<li>
+<p><strong>Accesibilidad (65/100)</strong></p>
+<ul>
+<li>Agregar etiquetas a todos los campos de formulario</li>
+<li>Mejorar contraste de colores</li>
+<li>Añadir textos alternativos a imágenes</li>
+</ul>
+</li>
+<li>
+<p><strong>Buenas Prácticas (82/100)</strong></p>
+<ul>
+<li>Actualizar librerías con vulnerabilidades</li>
+<li>Corregir errores de consola</li>
+<li>Implementar HTTPS para todos los recursos</li>
+</ul>
+</li>
+<li>
+<p><strong>SEO (95/100)</strong></p>
+<ul>
+<li>Añadir meta descripción faltante</li>
+<li>Ajustar tamaño de fuente en móvil</li>
+</ul>
+</li>
+<li>
+<p><strong>PWA (40/100)</strong></p>
+<ul>
+<li>Implementar Service Worker básico</li>
+<li>Crear manifest.json completo</li>
+<li>Configurar página offline</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="factores-que-afectan-los-resultados">Factores que afectan los resultados<a href="#factores-que-afectan-los-resultados" class="hash-link" aria-label="Enlace directo al Factores que afectan los resultados" title="Enlace directo al Factores que afectan los resultados">​</a></h2>
+<p>Al interpretar resultados, considera estos factores que pueden afectar las puntuaciones:</p>
+<ul>
+<li><strong>Variabilidad de red</strong>: Latencia, ancho de banda</li>
+<li><strong>Variabilidad de CPU</strong>: Throttling, carga del sistema</li>
+<li><strong>Extensiones de navegador</strong>: Pueden interferir con mediciones</li>
+<li><strong>Caché</strong>: Estado de la caché del navegador</li>
+<li><strong>Servidores de terceros</strong>: Rendimiento de recursos externos</li>
+<li><strong>Tamaño de laboratorio vs. datos reales</strong>: Las pruebas de Lighthouse son en entorno controlado</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="comparación-con-datos-reales">Comparación con datos reales<a href="#comparación-con-datos-reales" class="hash-link" aria-label="Enlace directo al Comparación con datos reales" title="Enlace directo al Comparación con datos reales">​</a></h2>
+<p>Para una interpretación completa, compara Lighthouse con datos de usuarios reales:</p>
+<ul>
+<li><strong>Chrome User Experience Report (CrUX)</strong></li>
+<li><strong>Google Analytics</strong></li>
+<li><strong>Herramientas RUM (Real User Monitoring)</strong></li>
+<li><strong>Field Data en PageSpeed Insights</strong></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="mejora-continua">Mejora continua<a href="#mejora-continua" class="hash-link" aria-label="Enlace directo al Mejora continua" title="Enlace directo al Mejora continua">​</a></h2>
+<p>La interpretación de resultados debe ser parte de un proceso de mejora continua:</p>
+<ol>
+<li><strong>Auditar regularmente</strong>: Programar auditorías periódicas</li>
+<li><strong>Comparar historial</strong>: Analizar tendencias a lo largo del tiempo</li>
+<li><strong>Establecer objetivos</strong>: Definir puntuaciones mínimas por categoría</li>
+<li><strong>Documentar cambios</strong>: Mantener registro de optimizaciones y su impacto</li>
+<li><strong>Integrar en CI/CD</strong>: Automatizar pruebas en el flujo de desarrollo</li>
+</ol>
+<p>Siguiendo estas prácticas de interpretación, podrás transformar los resultados de Lighthouse en mejoras concretas que beneficien tanto a los usuarios como al posicionamiento y rendimiento de tu sitio web.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/lighthouse/pwa"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">📱 PWA</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#estructura-del-informe" class="table-of-contents__link toc-highlight">Estructura del informe</a></li><li><a href="#puntuacion-global" class="table-of-contents__link toc-highlight">Puntuación global</a></li><li><a href="#puntuaciones-categoria" class="table-of-contents__link toc-highlight">Puntuaciones por categoría</a></li><li><a href="#auditorias-individuales" class="table-of-contents__link toc-highlight">Auditorías individuales</a></li><li><a href="#metricas-clave" class="table-of-contents__link toc-highlight">Métricas clave</a></li><li><a href="#estableciendo-prioridades" class="table-of-contents__link toc-highlight">Estableciendo prioridades</a></li><li><a href="#ejemplo-de-plan-de-acción-basado-en-resultados" class="table-of-contents__link toc-highlight">Ejemplo de plan de acción basado en resultados</a></li><li><a href="#factores-que-afectan-los-resultados" class="table-of-contents__link toc-highlight">Factores que afectan los resultados</a></li><li><a href="#comparación-con-datos-reales" class="table-of-contents__link toc-highlight">Comparación con datos reales</a></li><li><a href="#mejora-continua" class="table-of-contents__link toc-highlight">Mejora continua</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title"></div><ul class="footer__items clean-list"></ul></div></div></div></footer></div>
+</body>
+</html>
