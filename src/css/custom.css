@@ -544,3 +544,8 @@ code {
   color: var(--ifm-color-danger-contrast-foreground);
   border-color: var(--ifm-color-danger-dark);
 }
+/* src/css/custom.css o donde tengas tus estilos personalizados */
+.sidebar-icon {
+  vertical-align: middle;
+  margin-right: 8px;
+}
